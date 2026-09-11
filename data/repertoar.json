@@ -1,0 +1,245 @@
+{
+ "_poznamka": "Repertoár. Zdroj: Seznam skladeb BB KV (vocal). Přidání skladby = přidat objekt sem a spustit build.",
+ "skladby": [
+  {
+   "nazev": "All Of Me",
+   "autor": "Gerald Marks / Seymour Simons",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "All The Things You Are",
+   "autor": "Jerome Kern",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "All The Way",
+   "autor": "James van Heusen",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Almost Like Being In Love",
+   "autor": "Frederick Loewe",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Birdland",
+   "autor": "Joe Zawinul",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Blue Moon",
+   "autor": "Richard Rodgers",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Blue Skies",
+   "autor": "Irving Berlin",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Candy",
+   "autor": "Mack David / Joan Whitney",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Cry Me A River",
+   "autor": "Arthur Hamilton",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Don't Get Around Much Anymore",
+   "autor": "Duke Ellington",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Fascinating Rhythm",
+   "autor": "George Gershwin",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Feeling Good",
+   "autor": "Leslie Bricusse / Anthony Newley",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "Fever",
+   "autor": "Eddie Cooley / John Davenport",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "Fly Me To The Moon",
+   "autor": "Bart Howard",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "A Foggy Day",
+   "autor": "George Gershwin",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "Georgia On My Mind",
+   "autor": "Hoagy Carmichael",
+   "typ": "zpěvák"
+  },
+  {
+   "nazev": "The Girl From Ipanema",
+   "autor": "Antonio Carlos Jobim",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Haven't Met You Yet",
+   "autor": "Michael Bublé",
+   "typ": "zpěvák"
+  },
+  {
+   "nazev": "I Wanna Be Loved By You",
+   "autor": "Herbert Stothart / Harry Ruby",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "I Won't Dance",
+   "autor": "Jerome Kern",
+   "typ": "duet"
+  },
+  {
+   "nazev": "It's A Beautiful Day",
+   "autor": "Michael Bublé",
+   "typ": "zpěvák"
+  },
+  {
+   "nazev": "The Lady Is a Tramp",
+   "autor": "Richard Rodgers",
+   "typ": "zpěvák"
+  },
+  {
+   "nazev": "Love Is Here To Stay",
+   "autor": "George Gershwin",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Mack The Knife",
+   "autor": "Kurt Weill",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "The Man I Love",
+   "autor": "George Gershwin",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "Misty",
+   "autor": "Erroll Garner",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Mr. Zoot Suit",
+   "autor": "Mark Cally",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "My Way",
+   "autor": "Jacques Revaux",
+   "typ": "zpěvák"
+  },
+  {
+   "nazev": "New York - New York",
+   "autor": "Fred Ebb / John Kander",
+   "typ": "zpěvák"
+  },
+  {
+   "nazev": "Night And Day",
+   "autor": "Cole Porter",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "No More Blues",
+   "autor": "Antonio Carlos Jobim",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "On The Sunny Side Of The Street",
+   "autor": "Jimmy McHugh",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "Once I Had A Secret Love",
+   "autor": "Sammy Fain / Paul Francis Webster",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Orange Colored Sky",
+   "autor": "Milton DeLugg / Willie Stein",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Over The Rainbow",
+   "autor": "Harold Arlen",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "Red Roses for A Blue Lady",
+   "autor": "Sid Tepper / Roy C. Bennett",
+   "typ": "zpěvák"
+  },
+  {
+   "nazev": "Sir Duke",
+   "autor": "Stevie Wonder",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "Smoke Gets In Your Eyes",
+   "autor": "Jerome Kern",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "Softly, As In A Morning Sunrise",
+   "autor": "Sigmund Romberg",
+   "typ": "instrumental"
+  },
+  {
+   "nazev": "Somebody Loves Me",
+   "autor": "George Gershwin",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Somethin' Stupid",
+   "autor": "C. Carson Parks",
+   "typ": "duet"
+  },
+  {
+   "nazev": "Strangers In The Night",
+   "autor": "Bert Kaempfert",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Summertime (From Porgy and Bess)",
+   "autor": "George Gershwin",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "Sway (Quien Sera)",
+   "autor": "Pablo Beltrán Ruiz",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "They Can't Take That Away From Me",
+   "autor": "George Gershwin",
+   "typ": "zpěvačka"
+  },
+  {
+   "nazev": "The Way You Look Tonight",
+   "autor": "Jerome Kern",
+   "typ": "zpěv"
+  },
+  {
+   "nazev": "What A Wonderful World",
+   "autor": "Bob Thiele / George David Weiss",
+   "typ": "zpěvák"
+  },
+  {
+   "nazev": "'S Wonderful",
+   "autor": "George Gershwin",
+   "typ": "zpěvačka"
+  }
+ ]
+}

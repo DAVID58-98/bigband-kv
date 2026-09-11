@@ -1,0 +1,148 @@
+{
+  "_navod": "Obsazení orchestru. Pořadí sekcí i jmen v seznamu = pořadí na webu (pyramida shora dolů). Po úpravě spustí GitHub Action přegenerování index.html.",
+  "_zdroj": "Nástroje převzaty z cedulí na fotografiích obsazení (bigbandkv.cz).",
+  "sekce": [
+    {
+      "id": "vedeni",
+      "nazev": "Vedení orchestru",
+      "clenove": [
+        {
+          "jmeno": "Zdeněk Krám",
+          "soubor": "zdenek-kram",
+          "nastroj": "kapelník · pozoun"
+        }
+      ]
+    },
+    {
+      "id": "zpev",
+      "nazev": "Zpěv",
+      "clenove": [
+        {
+          "jmeno": "Mirka Lendělová",
+          "soubor": "mirka-lendelova",
+          "nastroj": "zpěv"
+        },
+        {
+          "jmeno": "David Kleňha",
+          "soubor": "david-klenha",
+          "nastroj": "zpěv"
+        }
+      ]
+    },
+    {
+      "id": "rytmika",
+      "nazev": "Rytmika",
+      "clenove": [
+        {
+          "jmeno": "Karel Šimandl",
+          "soubor": "karel-simandl",
+          "nastroj": "piano"
+        },
+        {
+          "jmeno": "Pavel Horych",
+          "soubor": "pavel-horych",
+          "nastroj": "kytara"
+        },
+        {
+          "jmeno": "Jakub Smutný",
+          "soubor": "jakub-smutny",
+          "nastroj": "baskytara"
+        },
+        {
+          "jmeno": "Václav Vejvoda",
+          "soubor": "vaclav-vejvoda",
+          "nastroj": "bicí nástroje"
+        }
+      ]
+    },
+    {
+      "id": "saxofony",
+      "nazev": "Saxofony",
+      "clenove": [
+        {
+          "jmeno": "Jan Šoltész",
+          "soubor": "jan-soltesz",
+          "nastroj": "altsaxofon"
+        },
+        {
+          "jmeno": "Antonín Týnek",
+          "soubor": "antonin-tynek",
+          "nastroj": "altsaxofon"
+        },
+        {
+          "jmeno": "Milan Szep",
+          "soubor": "milan-szep",
+          "nastroj": "tenorsaxofon"
+        },
+        {
+          "jmeno": "Václav Rožec",
+          "soubor": "vaclav-rozec",
+          "nastroj": "tenorsaxofon"
+        },
+        {
+          "jmeno": "Jiří Drahokoupil",
+          "soubor": "jiri-drahokoupil",
+          "nastroj": "barytonsaxofon"
+        }
+      ]
+    },
+    {
+      "id": "pozouny",
+      "nazev": "Pozouny",
+      "clenove": [
+        {
+          "jmeno": "Pavel Truhlář",
+          "soubor": "pavel-truhlar",
+          "nastroj": "pozoun"
+        },
+        {
+          "jmeno": "Jiří Kareš st.",
+          "soubor": "jiri-kares-st",
+          "nastroj": "pozoun"
+        },
+        {
+          "jmeno": "Jiří Kareš ml.",
+          "soubor": "jiri-kares-ml",
+          "nastroj": "pozoun"
+        }
+      ]
+    },
+    {
+      "id": "trumpety",
+      "nazev": "Trumpety",
+      "clenove": [
+        {
+          "jmeno": "Jaroslav Dlouhý",
+          "soubor": "jaroslav-dlouhy",
+          "nastroj": "trumpeta"
+        },
+        {
+          "jmeno": "Jindřich Zmrzlý",
+          "soubor": "jindrich-zmrzly",
+          "nastroj": "trumpeta"
+        },
+        {
+          "jmeno": "Stanislav Bárta",
+          "soubor": "stanislav-barta",
+          "nastroj": "trumpeta"
+        },
+        {
+          "jmeno": "Zdeněk Havlíček",
+          "soubor": "zdenek-havlicek",
+          "nastroj": "trumpeta"
+        }
+      ]
+    },
+    {
+      "id": "hoste",
+      "nazev": "Hosté",
+      "clenove": [
+        {
+          "jmeno": "Jan Vacula",
+          "soubor": "jan-vacula",
+          "nastroj": "pozoun"
+        }
+      ]
+    }
+  ]
+}
