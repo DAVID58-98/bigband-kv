@@ -1,0 +1,9 @@
+# originály fotek z Webnode — zálohy, na web nepatří
+foto/orig/
+hudebnici/orig/
+video/orig/
+
+# systémové
+.DS_Store
+Thumbs.db
+*.tmp

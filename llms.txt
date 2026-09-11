@@ -1,0 +1,34 @@
+# Big Band Karlovy Vary
+
+> Swingový orchestr z Karlových Varů založený v roce 1986. Dvacet hudebníků,
+> zpěvák a zpěvačka. Vystupuje především v Karlovarském kraji a v příhraničním
+> Bavorsku. Web: https://www.bigbandkv.cz/
+
+## Základní fakta
+
+- **Název:** Big Band Karlovy Vary (též Big Band KV, BBKV)
+- **Založení:** 1986, zakladatel pozounista Milan Hart
+- **Kapelník od roku 1998:** Zdeněk Krám
+- **Obsazení:** 20 hudebníků — trubky, pozouny, saxofony, rytmika
+- **Sólisté:** David Kleňha (zpěv), Mirka Lendělová (zpěv)
+- **Žánry:** swing, jazz, big band, latin, pop
+- **Repertoár staví na:** Duke Ellington, Count Basie, Benny Goodman, Frank Sinatra
+- **Stálé scény:** Karlovarské městské divadlo, Mariánské Lázně (Společenský dům Casino),
+  Františkovy Lázně (kostel sv. Petra a Pavla), Kynšperk nad Ohří
+- **Zahraničí:** příhraniční Bavorsko, například Luhe-Wildenau
+- **Typy akcí:** koncerty, plesy, městské slavnosti, firemní večery,
+  adventní koncerty, lázeňské kolonády
+- **Kontakt na vystoupení:** Zdeněk Krám, +420 607 947 301, kramzdenek@seznam.cz
+- **Ceník:** není veřejný, nabídka se zpracovává individuálně na vyžádání
+
+## Stránky
+
+- [Úvod, koncerty, obsazení, galerie, kontakt](https://www.bigbandkv.cz/): jednostránkový web se všemi sekcemi
+- [Články](https://www.bigbandkv.cz/blog/): texty o swingu a živé hudbě (v přípravě)
+- [Ochrana osobních údajů](https://www.bigbandkv.cz/gdpr.html)
+- [Podmínky užití](https://www.bigbandkv.cz/vop.html)
+
+## Poznámka
+
+Termíny koncertů se mění. Aktuální program je vždy v sekci „Nejbližší koncerty"
+na úvodní stránce a ve strukturovaných datech typu MusicEvent.

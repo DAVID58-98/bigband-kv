@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ochrana osobních údajů — Big Band Karlovy Vary</title>
+<meta name="description" content="Jak Big Band Karlovy Vary zachází s osobními údaji návštěvníků webu bigbandkv.cz, jaké cookies web používá a jaká máte práva.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.bigbandkv.cz/gdpr.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Big Band Karlovy Vary">
+<meta property="og:title" content="Ochrana osobních údajů — Big Band Karlovy Vary">
+<meta property="og:description" content="Jak Big Band Karlovy Vary zachází s osobními údaji návštěvníků webu bigbandkv.cz, jaké cookies web používá a jaká máte práva.">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://www.bigbandkv.cz/SEO/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- JAZYKOVÉ MUTACE — odkomentuj, až budou /en/ a /de/ hotové
+<link rel="alternate" hreflang="cs" href="https://www.bigbandkv.cz/gdpr.html">
+<link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/gdpr.html">
+<link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/gdpr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/gdpr.html">
+-->
+
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#16161A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#FBF9F4;--white:#FFFFFF;--ink:#16161A;--gold:#8C6A16;--gold-lt:#E8D6A8;
+  --muted:#6A6558;--line:rgba(22,22,26,.10);--line-gold:rgba(140,106,22,.22);
+  --maxw:880px;--pad:56px;--r-btn:8px;
+  --font-display:'Cinzel',Georgia,serif;
+  --font-body:'Josefin Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--font-body);font-weight:300;font-size:17px;line-height:1.75;
+  color:var(--ink);background:var(--ivory);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+::selection{background:var(--gold-lt);color:var(--ink)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+
+/* hlavička */
+.topbar{border-bottom:2px solid var(--gold);background:rgba(251,249,244,.95);
+  backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}
+.topbar__in{max-width:1280px;margin:0 auto;padding:0 var(--pad);height:66px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:inline-flex;align-items:center;gap:13px}
+.logo-mark{display:block;width:32px;height:32px;flex:0 0 auto;background:var(--gold);
+  -webkit-mask:url(/favicon/trumpeta-maska.png) center/contain no-repeat;
+          mask:url(/favicon/trumpeta-maska.png) center/contain no-repeat;
+  transition:transform .35s cubic-bezier(.2,.9,.3,1)}
+.logo:hover .logo-mark{transform:rotate(-8deg) scale(1.06)}
+.logo-text{font-family:var(--font-display);font-weight:700;font-size:19px;
+  letter-spacing:.22em;line-height:1;color:var(--ink)}
+.topbar a.back{font-size:11.5px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);transition:color .2s}
+.topbar a.back:hover{color:var(--gold)}
+
+/* obsah */
+.page{padding:104px 0 128px}
+.meta{display:block;font-size:12px;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:22px}
+h1{font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1.12;
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:34px}
+h2{font-family:var(--font-body);font-weight:600;font-size:21px;letter-spacing:.04em;
+  margin:56px 0 14px;color:var(--ink)}
+h3{font-family:var(--font-body);font-weight:600;font-size:17px;margin:30px 0 8px}
+p{margin-bottom:16px;color:var(--muted);text-wrap:pretty;max-width:70ch}
+p strong,li strong{color:var(--ink);font-weight:600}
+a.inline,p a,li a{color:var(--gold);border-bottom:1px solid var(--line-gold)}
+p a:hover,li a:hover{border-color:var(--gold)}
+.page ul{margin:0 0 20px}
+.page ul li{position:relative;padding:7px 0 7px 24px;color:var(--muted)}
+.page ul li::before{content:"";position:absolute;left:0;top:18px;width:10px;height:2px;background:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+  padding:16px 34px;border-radius:var(--r-btn);background:var(--ink);color:var(--ivory);
+  font-weight:600;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;
+  transition:box-shadow .2s,transform .2s}
+.btn:hover{box-shadow:inset 0 -3px 0 var(--gold);transform:translateY(-1px)}
+.btn--outline{background:none;color:var(--ink);border:1px solid var(--line)}
+.btn--outline:hover{border-color:var(--gold);color:var(--gold);box-shadow:none}
+
+/* divadelní oblouk jako ozdoba */
+.arch{width:132px;height:52px;border:1px solid var(--line-gold);border-bottom:0;
+  border-radius:80px 80px 0 0;margin:0 0 30px}
+.arch--c{margin-left:auto;margin-right:auto}
+
+/* karty článků */
+.post{border-top:1px solid var(--line);padding:30px 0}
+.post:last-of-type{border-bottom:1px solid var(--line)}
+.post a{display:block}
+.post h2{margin:8px 0 10px;font-size:22px;transition:color .2s}
+.post a:hover h2{color:var(--gold)}
+.post p{margin:0}
+.soon{border:1px dashed var(--gold);border-radius:12px;padding:30px 28px;
+  background:linear-gradient(178deg,#F7F1E1,#EFE7D2);margin:8px 0 40px}
+.soon p{margin:0;color:var(--muted)}
+.soon strong{display:block;font-family:var(--font-display);font-weight:700;font-size:16px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+
+/* patička */
+.foot{border-top:1px solid var(--line);padding:44px 0;font-size:13px;color:var(--muted)}
+.foot__in{max-width:1280px;margin:0 auto;padding:0 var(--pad);
+  display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center}
+.foot a:hover{color:var(--gold)}
+
+@media (max-width:900px){:root{--pad:32px}h1{font-size:32px}.page{padding:80px 0 96px}}
+@media (max-width:640px){
+  :root{--pad:20px}
+  body{font-size:15px}
+  h1{font-size:25px;letter-spacing:.1em;margin-bottom:26px}
+  h2{font-size:18px;margin:40px 0 12px}
+  .page{padding:60px 0 72px}
+  .topbar__in{height:60px}
+  .btn{width:100%}
+  .arch{width:104px;height:42px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media print{.topbar,.foot{display:none}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <a class="logo" href="/" aria-label="Big Band Karlovy Vary — domů">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-text">BBKV</span>
+    </a>
+    <a class="back" href="/">&larr; Zpět na web</a>
+  </div>
+</header>
+
+<main class="page">
+  <div class="wrap">
+    <span class="arch" aria-hidden="true"></span>
+    <span class="meta">Zásady</span>
+    <h1>Ochrana<br>osobních údajů</h1>
+    <p>Tento dokument popisuje, jak web <strong>www.bigbandkv.cz</strong> nakládá s osobními údaji návštěvníků. Vychází z nařízení Evropského parlamentu a Rady (EU) 2016/679 (GDPR) a ze zákona č. 110/2019 Sb., o zpracování osobních údajů.</p>
+    <p><strong>Poslední aktualizace:</strong> 11. 9. 2026</p>
+
+    <h2>1. Kdo údaje zpracovává</h2>
+    <p>Správcem osobních údajů je Big Band Karlovy Vary, zastoupený kapelníkem Zdeňkem Krámem.</p>
+    <ul>
+      <li>E-mail: <a href="mailto:kramzdenek@seznam.cz">kramzdenek@seznam.cz</a></li>
+      <li>Telefon: <a href="tel:+420607947301">+420 607 947 301</a></li>
+    </ul>
+    <!-- DOPLNIT: přesný právní subjekt (spolek / z. s. / OSVČ), IČO a sídlo. Viz README. -->
+
+    <h2>2. Jaké údaje web sbírá</h2>
+    <p>Web neobsahuje kontaktní formulář, registraci ani uživatelské účty. Sám o sobě tedy žádné osobní údaje aktivně nesbírá.</p>
+    <h3>Údaje z komunikace</h3>
+    <p>Pokud nás kontaktujete e-mailem nebo telefonicky, zpracováváme údaje, které nám sami sdělíte (jméno, e-mail, telefon, obsah zprávy). Důvodem je vyřízení vašeho dotazu nebo jednání o vystoupení, tedy oprávněný zájem a plnění smlouvy. Uchováváme je po dobu nezbytnou k vyřízení a následně po dobu vyžadovanou právními předpisy.</p>
+    <h3>Technické údaje</h3>
+    <p>Provozovatel hostingu (GitHub Pages, GitHub Inc.) zpracovává standardní serverové logy včetně IP adresy. Jde o technickou nezbytnost provozu webu.</p>
+
+    <h2>3. Cookies</h2>
+    <p>Web ve výchozím stavu ukládá pouze <strong>nezbytné cookies</strong> — konkrétně informaci o vaší volbě v cookie liště, aby se vás web neptal opakovaně. Bez ní by web nemohl vaše rozhodnutí respektovat.</p>
+    <p>Analytické a marketingové nástroje jsou ve výchozím stavu <strong>vypnuté</strong> (Google Consent Mode v2, stav „denied"). Zapnou se pouze tehdy, pokud je v cookie liště sami povolíte.</p>
+    <p>Svou volbu můžete kdykoli změnit odkazem <strong>Nastavení cookies</strong> v patičce webu, nebo smazáním údajů webu v nastavení prohlížeče.</p>
+
+    <h2>4. Obsah třetích stran</h2>
+    <h3>YouTube</h3>
+    <p>Videozáznamy koncertů jsou uložené na YouTube. Používáme režim <strong>youtube-nocookie.com</strong> a takzvanou fasádu — přehrávač se načte teprve tehdy, když na video kliknete. Do té doby YouTube o vaší návštěvě neví. Po spuštění videa se uplatní zásady ochrany soukromí společnosti Google.</p>
+    <h3>Google Fonts</h3>
+    <p>Písma se načítají ze serverů Google Fonts, což znamená přenos vaší IP adresy společnosti Google. Pokud si přejete tomuto přenosu předejít, lze písma přesunout na vlastní server.</p>
+
+    <h2>5. Předávání údajů</h2>
+    <p>Osobní údaje neprodáváme ani nepředáváme třetím stranám k marketingovým účelům. K údajům mohou mít technický přístup poskytovatelé hostingu a e-mailové služby v roli zpracovatelů.</p>
+
+    <h2>6. Vaše práva</h2>
+    <ul>
+      <li>právo na přístup k údajům, které o vás zpracováváme,</li>
+      <li>právo na opravu nepřesných údajů,</li>
+      <li>právo na výmaz (právo být zapomenut),</li>
+      <li>právo na omezení zpracování,</li>
+      <li>právo na přenositelnost údajů,</li>
+      <li>právo vznést námitku proti zpracování,</li>
+      <li>právo odvolat souhlas, pokud je zpracování na souhlasu založeno,</li>
+      <li>právo podat stížnost u Úřadu pro ochranu osobních údajů, Pplk. Sochora 27, 170 00 Praha 7, <a href="https://www.uoou.cz" rel="noopener">www.uoou.cz</a>.</li>
+    </ul>
+    <p>Uplatnit je můžete na e-mailu <a href="mailto:kramzdenek@seznam.cz">kramzdenek@seznam.cz</a>.</p>
+
+    <h2>7. Změny těchto zásad</h2>
+    <p>Zásady můžeme upravit, pokud se změní způsob provozu webu nebo právní předpisy. Aktuální znění je vždy dostupné na této adrese s uvedeným datem poslední aktualizace.</p>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <span>&copy; <span id="year">2026</span> Big Band Karlovy Vary</span>
+    <span>
+      <a href="/">Úvod</a> &middot;
+      <a href="/blog/">Články</a> &middot;
+      <a href="/gdpr.html">Ochrana osobních údajů</a> &middot;
+      <a href="/vop.html">Podmínky užití</a>
+    </span>
+  </div>
+</footer>
+<script>var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();</script>
+</body>
+</html>
