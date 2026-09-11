@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Band Karlovy Vary — ladíme nástroje i web</title>
+<meta name="description" content="Big Band Karlovy Vary — swingový orchestr od roku 1986. Nový web právě ladíme. Termíny nejbližších koncertů a kontakt na kapelníka najdete tady.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Big Band Karlovy Vary">
+<link rel="canonical" href="https://www.bigbandkv.cz/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Big Band Karlovy Vary">
+<meta property="og:title" content="Big Band Karlovy Vary — ladíme nástroje i web">
+<meta property="og:description" content="Swingový orchestr od roku 1986. Nový web právě ladíme. Termíny koncertů a kontakt najdete tady.">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:url" content="https://www.bigbandkv.cz/">
+<meta name="twitter:card" content="summary">
+
+<!-- Ověření Google Search Console — PŘENESENO Z WEBNODE, NEMAZAT -->
+<meta name="google-site-verification" content="-pmNkscsZHxxFbx0hi4LHGIa5uDr2vB7Ky5lKE6vuS4">
+
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#16161A">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ivory:#FBF9F4;--ink:#16161A;--gold:#8C6A16;--gold-lt:#E8D6A8;
+  --muted-dk:#DCD7CB;--r-btn:8px;
+  --font-display:'Cinzel',Georgia,serif;
+  --font-body:'Josefin Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);font-weight:300;font-size:17px;line-height:1.75;
+  color:var(--muted-dk);min-height:100svh;
+  display:flex;align-items:center;justify-content:center;padding:40px 20px;
+  -webkit-font-smoothing:antialiased;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.35),transparent 26%,transparent 74%,rgba(0,0,0,.45)),
+    repeating-linear-gradient(90deg,
+      #24242C 0px,#33333E 15px,#454553 31px,#353541 47px,#212129 62px,#2B2B35 78px);
+  background-attachment:fixed;
+}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--gold-lt);outline-offset:3px}
+::selection{background:var(--gold-lt);color:var(--ink)}
+
+.card{
+  width:100%;max-width:660px;text-align:center;position:relative;
+  padding:72px 40px 44px;
+  border:1px solid rgba(232,214,168,.28);border-bottom:0;
+  border-radius:300px 300px 0 0;
+  background:linear-gradient(180deg,rgba(22,22,26,.72),rgba(22,22,26,.94));
+  backdrop-filter:blur(3px);
+  animation:up .9s cubic-bezier(.19,1,.28,1) both;
+}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+.mark{
+  width:96px;height:96px;margin:0 auto 30px;background:var(--gold-lt);
+  -webkit-mask:url("data:image/png;base64,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") center/contain no-repeat;
+          mask:url("data:image/png;base64,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") center/contain no-repeat;
+  animation:sway 3.4s ease-in-out infinite;
+}
+@keyframes sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+
+.eyebrow{
+  display:block;font-size:11px;letter-spacing:.44em;text-transform:uppercase;
+  color:var(--gold-lt);margin-bottom:20px;
+}
+h1{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(26px,5.4vw,44px);line-height:1.16;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ivory);
+}
+h1 .sub{display:block;font-size:.62em;letter-spacing:.16em;color:var(--gold-lt);margin-top:12px}
+.lead{max-width:44ch;margin:26px auto 0;font-size:16.5px;line-height:1.75}
+.wink{margin-top:14px;font-size:14.5px;color:rgba(220,215,203,.7);font-style:italic}
+
+/* ladička */
+.tuner{margin:36px auto 0;width:220px}
+.tuner__scale{
+  position:relative;height:44px;
+  border-bottom:1px solid rgba(232,214,168,.25);
+}
+.tuner__scale i{
+  position:absolute;bottom:0;width:1px;background:rgba(232,214,168,.3);
+}
+.tuner__needle{
+  position:absolute;left:50%;bottom:0;width:2px;height:44px;
+  background:linear-gradient(180deg,var(--gold-lt),var(--gold));
+  transform-origin:bottom center;
+  animation:tune 4.2s cubic-bezier(.4,0,.2,1) infinite;
+}
+@keyframes tune{
+  0%{transform:rotate(-26deg)} 18%{transform:rotate(19deg)}
+  34%{transform:rotate(-11deg)} 50%{transform:rotate(6deg)}
+  66%{transform:rotate(-2deg)} 80%,100%{transform:rotate(0deg)}
+}
+.tuner__label{
+  margin-top:10px;font-size:11px;letter-spacing:.34em;text-transform:uppercase;
+  color:rgba(232,214,168,.75);
+}
+
+.hr{height:1px;margin:40px auto 0;max-width:420px;
+  background:linear-gradient(90deg,transparent,rgba(232,214,168,.4),transparent)}
+
+h2{
+  font-family:var(--font-display);font-weight:700;font-size:13px;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--gold-lt);margin:34px 0 18px;
+}
+.gigs li{
+  display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap;
+  padding:11px 0;border-top:1px solid rgba(232,214,168,.12);
+}
+.gigs li:first-child{border-top:0}
+.gigs time{
+  font-family:var(--font-display);font-weight:700;font-size:16px;
+  letter-spacing:.06em;color:var(--ivory);flex:0 0 auto;
+}
+.gigs .what{color:var(--muted-dk);font-size:15.5px}
+.gigs .where{font-size:13px;color:rgba(220,215,203,.62);flex-basis:100%}
+
+.links{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:12px}
+.links a{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-height:48px;min-width:290px;padding:12px 24px;border-radius:var(--r-btn);
+  border:1px solid rgba(232,214,168,.3);color:var(--ivory);font-size:16.5px;
+  transition:border-color .22s,background .22s,transform .22s;
+}
+.links a:hover{border-color:var(--gold-lt);background:rgba(232,214,168,.08);transform:translateY(-2px)}
+.links svg{width:18px;height:18px;fill:none;stroke:var(--gold-lt);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+.foot{
+  margin-top:34px;padding-top:22px;border-top:1px solid rgba(232,214,168,.12);
+  font-size:12.5px;color:rgba(220,215,203,.55);
+}
+.foot a{border-bottom:1px solid rgba(232,214,168,.22)}
+.foot a:hover{color:var(--gold-lt)}
+.foot .since{display:block;margin-top:8px;letter-spacing:.3em;text-transform:uppercase;font-size:11px}
+
+@media (max-width:640px){
+  body{padding:24px 14px}
+  .card{padding:52px 22px 34px;border-radius:190px 190px 0 0}
+  .mark{width:74px;height:74px;margin-bottom:24px}
+  .lead{font-size:15.5px}
+  .links a{min-width:0;width:100%;font-size:15.5px}
+  .gigs li{gap:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .tuner__needle{transform:rotate(0)}
+}
+</style>
+</head>
+<body>
+
+<main class="card">
+  <div class="mark" aria-hidden="true"></div>
+
+  <span class="eyebrow">Big Band Karlovy Vary</span>
+
+  <h1>
+    Ladíme nástroje
+    <span class="sub">a při té příležitosti i web</span>
+  </h1>
+
+  <p class="lead">Nový web ještě ladíme. Dechová sekce to má stejné.</p>
+
+  <div class="tuner" aria-hidden="true">
+    <div class="tuner__scale">
+      <i style="left:0;height:14px"></i>
+      <i style="left:25%;height:10px"></i>
+      <i style="left:50%;height:20px;background:rgba(232,214,168,.6)"></i>
+      <i style="left:75%;height:10px"></i>
+      <i style="right:0;height:14px"></i>
+      <span class="tuner__needle"></span>
+    </div>
+    <p class="tuner__label">a = 440 Hz</p>
+  </div>
+
+  <div class="hr" aria-hidden="true"></div>
+
+  <h2>Nejbližší koncerty</h2>
+  <ul class="gigs">
+    <li>
+      <time datetime="2026-09-19T19:30">19. 9. 2026</time>
+      <span class="what">Hvězdy jazzu &middot; 19:30</span>
+      <span class="where">Karlovarské městské divadlo</span>
+    </li>
+    <li>
+      <time datetime="2026-09-20T16:00">20. 9. 2026</time>
+      <span class="what">Výročí Jana Zmrzlého &middot; 16:00</span>
+      <span class="where">Městské kulturní středisko, Kynšperk nad Ohří</span>
+    </li>
+    <li>
+      <time datetime="2026-10-10T19:30">10. 10. 2026</time>
+      <span class="what">Hvězdy jazzu &middot; 19:30</span>
+      <span class="where">Karlovarské městské divadlo</span>
+    </li>
+    <li>
+      <time datetime="2026-11-07T19:30">7. 11. 2026</time>
+      <span class="what">Hvězdy jazzu &middot; 19:30</span>
+      <span class="where">Karlovarské městské divadlo</span>
+    </li>
+  </ul>
+
+  <h2>Chcete nás pozvat?</h2>
+  <div class="links">
+    <a href="tel:+420607947301">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span>+420 607 947 301</span>
+    </a>
+    <a href="mailto:kramzdenek@seznam.cz">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+      <span>kramzdenek@seznam.cz</span>
+    </a>
+  </div>
+
+  <div class="foot">
+    Zdeněk Krám, kapelník &middot;
+    <a href="/gdpr.html">Ochrana osobních údajů</a> &middot;
+    <a href="/vop.html">Podmínky užití</a>
+    <span class="since">Big Band Karlovy Vary &middot; since 1986</span>
+  </div>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["MusicGroup", "Organization"],
+      "@id": "https://www.bigbandkv.cz/#orchestr",
+      "name": "Big Band Karlovy Vary",
+      "alternateName": ["Big Band KV", "BBKV"],
+      "url": "https://www.bigbandkv.cz/",
+      "description": "Swingový orchestr z Karlových Varů založený v roce 1986. Repertoár staví na skladbách Duke Ellingtona, Counta Basieho, Bennyho Goodmana a Franka Sinatry.",
+      "foundingDate": "1986",
+      "genre": ["Swing", "Jazz", "Big band"],
+      "email": "kramzdenek@seznam.cz",
+      "telephone": "+420607947301",
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Karlovarský kraj" },
+        { "@type": "Country", "name": "Česká republika" }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "booking",
+        "name": "Zdeněk Krám — kapelník",
+        "telephone": "+420607947301",
+        "email": "kramzdenek@seznam.cz"
+      }
+    },
+    {
+      "@type": "MusicEvent",
+      "name": "Hvězdy jazzu",
+      "startDate": "2026-09-19T19:30:00+02:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Karlovarské městské divadlo",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Divadelní náměstí 21",
+          "addressLocality": "Karlovy Vary",
+          "postalCode": "360 01",
+          "addressCountry": "CZ"
+        }
+      },
+      "performer": { "@id": "https://www.bigbandkv.cz/#orchestr" },
+      "organizer": { "@id": "https://www.bigbandkv.cz/#orchestr" },
+      "url": "https://www.bigbandkv.cz/"
+    },
+    {
+      "@type": "MusicEvent",
+      "name": "Výročí Jana Zmrzlého",
+      "startDate": "2026-09-20T16:00:00+02:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Městské kulturní středisko Kynšperk nad Ohří",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kynšperk nad Ohří",
+          "addressCountry": "CZ"
+        }
+      },
+      "performer": { "@id": "https://www.bigbandkv.cz/#orchestr" },
+      "organizer": { "@id": "https://www.bigbandkv.cz/#orchestr" },
+      "url": "https://www.bigbandkv.cz/"
+    },
+    {
+      "@type": "MusicEvent",
+      "name": "Hvězdy jazzu",
+      "startDate": "2026-10-10T19:30:00+02:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Karlovarské městské divadlo",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Divadelní náměstí 21",
+          "addressLocality": "Karlovy Vary",
+          "postalCode": "360 01",
+          "addressCountry": "CZ"
+        }
+      },
+      "performer": { "@id": "https://www.bigbandkv.cz/#orchestr" },
+      "organizer": { "@id": "https://www.bigbandkv.cz/#orchestr" },
+      "url": "https://www.bigbandkv.cz/"
+    },
+    {
+      "@type": "MusicEvent",
+      "name": "Hvězdy jazzu",
+      "startDate": "2026-11-07T19:30:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Karlovarské městské divadlo",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Divadelní náměstí 21",
+          "addressLocality": "Karlovy Vary",
+          "postalCode": "360 01",
+          "addressCountry": "CZ"
+        }
+      },
+      "performer": { "@id": "https://www.bigbandkv.cz/#orchestr" },
+      "organizer": { "@id": "https://www.bigbandkv.cz/#orchestr" },
+      "url": "https://www.bigbandkv.cz/"
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
