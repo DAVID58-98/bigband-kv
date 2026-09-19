@@ -2,10 +2,6 @@
 
 User-agent: *
 Allow: /
-Disallow: /skripty/
-Disallow: /build/
-Disallow: /data/
-Disallow: /blog/_sablona-clanku.html
 
 # --- AI vyhledávače a asistenti: povoleno ---------------------------
 # Chceme, aby orchestr byl dohledatelný i v odpovědích AI asistentů.

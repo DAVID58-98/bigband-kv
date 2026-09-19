@@ -1,26 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.bigbandkv.cz/</loc>
-    <lastmod>2026-09-07</lastmod>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://www.bigbandkv.cz/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/"/>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.bigbandkv.cz/blog/</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://www.bigbandkv.cz/en/</loc>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://www.bigbandkv.cz/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/de/</loc>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://www.bigbandkv.cz/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.bigbandkv.cz/gdpr.html</loc>
-    <lastmod>2026-09-07</lastmod>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://www.bigbandkv.cz/gdpr.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/gdpr.html"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/gdpr.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/gdpr.html"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/en/gdpr.html</loc>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://www.bigbandkv.cz/gdpr.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/gdpr.html"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/gdpr.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/gdpr.html"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/de/gdpr.html</loc>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://www.bigbandkv.cz/gdpr.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/gdpr.html"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/gdpr.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/gdpr.html"/>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://www.bigbandkv.cz/vop.html</loc>
-    <lastmod>2026-09-07</lastmod>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://www.bigbandkv.cz/vop.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/vop.html"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/vop.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/vop.html"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/en/vop.html</loc>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://www.bigbandkv.cz/vop.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/vop.html"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/vop.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/vop.html"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/de/vop.html</loc>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://www.bigbandkv.cz/vop.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/vop.html"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/vop.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/vop.html"/>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
