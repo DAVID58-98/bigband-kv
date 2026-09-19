@@ -589,60 +589,77 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   margin-bottom:26px;display:flex;align-items:center;justify-content:center;gap:22px;
 }
 .member-row__title::before,.member-row__title::after{content:"";flex:0 0 44px;height:1px;background:var(--line)}
-.member-row__grid{display:flex;flex-wrap:wrap;justify-content:center;gap:32px 24px}
-.member{width:160px;text-align:center}
+.member-row__grid{display:flex;flex-wrap:wrap;justify-content:center;gap:34px 26px}
+.member{width:186px;text-align:center}
+
+/* dlaždice = divadelní portál: sametové pozadí, oblouk, jmenovka se zlatou linkou */
 .member__tile{
-  position:relative;aspect-ratio:3/4;overflow:hidden;
-  border:1px solid #92734b3d;border-radius:130px 130px 20px 20px;
-  background:
-    radial-gradient(75% 48% at 50% 104%,#9b263621,transparent 72%),
-    linear-gradient(172deg,#fffdf8 0%,#f7f0e3 52%,#ece1cf 100%);
-  box-shadow:inset 0 1px 0 #fff,0 14px 30px -22px #35171f80;
-  transition:transform .45s cubic-bezier(.22,.8,.3,1),box-shadow .45s,border-color .3s;
-  transform-style:preserve-3d;
+  position:relative;display:block;width:100%;aspect-ratio:300/380;
+  perspective:1000px;isolation:isolate;
 }
-/* rudá linka pod postavou + jemný oblouk uvnitř */
-.member__tile::before{
-  content:"";position:absolute;left:18%;right:18%;bottom:11%;height:2px;z-index:2;
-  background:linear-gradient(90deg,#9b263600,var(--red),#9b263600);
-  transform:scaleX(.7);transform-origin:center;transition:transform .45s,opacity .45s;opacity:.75;
+.member__scene{
+  position:absolute;inset:0;display:block;transform-style:preserve-3d;
+  transform:rotateX(0) rotateY(0);
+  transition:transform .65s cubic-bezier(.2,.75,.2,1);
 }
-.member__tile::after{
-  content:"";position:absolute;left:6%;right:6%;top:4%;bottom:5%;z-index:3;pointer-events:none;
-  border:1px solid #9b26362e;border-radius:120px 120px 14px 14px;
+.member__backdrop{
+  position:absolute;inset:0;overflow:hidden;border-radius:155px 155px 11px 11px;
+  background:radial-gradient(ellipse at 50% 28%,#c0988a 0%,#a47177 40%,#805361 78%,#714756 100%);
+  box-shadow:0 12px 18px -14px #4c182877,0 2px 4px #4c182808;
+  transition:box-shadow .6s,transform .6s;transform:translateZ(0);
 }
-.member:hover .member__tile{
-  transform:perspective(900px) rotateX(5deg) translateY(-10px);
-  border-color:#9b263673;
-  box-shadow:inset 0 1px 0 #fff,0 30px 46px -24px #4c182899;
+.member__halo{
+  position:absolute;width:70%;aspect-ratio:1;left:15%;top:18%;border-radius:50%;
+  background:radial-gradient(circle,#f8dec01a,transparent 72%);
+  transition:transform .7s;
 }
-.member:hover .member__tile::before{transform:scaleX(1);opacity:1}
-.member__mono{
-  position:absolute;left:0;right:0;top:44%;transform:translateY(-50%);
-  font:400 2rem/1 var(--display);letter-spacing:.1em;color:#9b26362e;z-index:0;
+.member__portal{position:absolute;inset:0;width:100%;height:100%;color:#e0c99b;opacity:.68;stroke-width:.85}
+.member__portrait{
+  position:absolute;inset:12px 8% 79px;display:block;z-index:1;
+  transform:translateZ(18px);transform-origin:50% 100%;
+  filter:drop-shadow(8px 8px 5px #16060c65);pointer-events:none;
+  transition:transform .7s cubic-bezier(.2,.75,.2,1),filter .7s;
 }
-.member__tile img{
-  position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:contain;object-position:bottom center;
-  transform-origin:50% 100%;
-  transition:transform .5s cubic-bezier(.22,.8,.3,1),filter .5s;
-  filter:drop-shadow(0 10px 14px #35171f2e);
+.member__tile img{width:100%;height:100%;display:block;object-fit:contain;object-position:center bottom;user-select:none}
+/* jmenovka — ostrý řez a jediná tenká zlatá linka */
+.member__front{
+  position:absolute;left:0;right:0;bottom:0;height:79px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  padding:0 9px 11px;color:#faedcf;background:#421724;
+  border-top:1px solid #c1a471;border-radius:0 0 8px 8px;
+  transform:translate3d(0,-16px,100px) scale(.9);transform-origin:50% 100%;
+  transition:transform .65s;pointer-events:none;
 }
-.member:hover .member__tile img{transform:scale(1.1)}
-/* po dorovnání skriptem řídí přiblížení proměnné */
+.member__name{display:block;font:400 clamp(18px,1.6vw,23px)/1.3 var(--display);letter-spacing:-.025em;color:#faedcf}
+.member__role{display:block;margin-top:7px;font:400 11px/1.3 var(--body);text-transform:uppercase;letter-spacing:.19em;color:#d7b88e}
+.member__glint{
+  position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;border-radius:inherit;
+  transform:translateZ(4px);transition:opacity .6s;
+  background:linear-gradient(115deg,#fff0 20%,#fff3 39%,#fff0 54%);
+}
+.member:hover .member__portrait,.member:focus-within .member__portrait{
+  transform:translate3d(0,-12px,76px) scale(1.13);filter:drop-shadow(10px 18px 7px #17051075);
+}
+.member:hover .member__backdrop{box-shadow:0 26px 34px -18px #4c18285e,0 3px 6px #4c18281a;transform:translateZ(-12px)}
+.member:hover .member__halo{transform:scale(1.05)}
+.member:hover .member__glint{opacity:.28}
+.member:hover .member__scene{transform:rotateX(3deg) rotateY(-5deg)}
+/* po dorovnání skriptem řídí posazení postavy proměnné */
 .member__tile img.is-zarovnany{transform:translate(var(--posunX,0),var(--posunY,0)) scale(var(--zvet,1))}
-.member:hover .member__tile img.is-zarovnany{transform:translate(var(--posunX,0),var(--posunY,0)) scale(calc(var(--zvet,1) * 1.1))}
-.member__name{display:block;margin-top:14px;font-size:.9375rem;font-weight:600;line-height:1.3;color:var(--wine)}
-.member__role{display:block;margin-top:4px;font-size:.75rem;color:var(--muted);line-height:1.4}
-.member--todo .member__role{opacity:.7}
+@media (hover:none){
+  .member:hover .member__portrait{transform:translateZ(18px);filter:drop-shadow(8px 8px 5px #16060c65)}
+  .member:hover .member__scene{transform:none}
+  .member:hover .member__backdrop{transform:translateZ(0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .member__scene{transform:none!important}
+  .member:hover .member__portrait{transform:translateY(-4px) scale(1.035)}
+}
 
 /* ============================================================
    REPERTOÁR — žánry a plynulý přehrávač skladeb
    ============================================================ */
-.rep{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
-.rep article{padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:#fffdf870;min-width:0}
-.rep article > span{font-size:.6875rem;letter-spacing:.14em;color:var(--gold);display:block;margin-bottom:6px}
-.rep h3{font-size:1.35rem;line-height:1.2;color:var(--wine);margin-bottom:6px}
-.rep p{font-size:.875rem;color:var(--muted)}
+.rep-intro{max-width:56ch;margin:0 0 30px;font-size:1rem;line-height:1.7;color:var(--muted)}
 
 .rep-player{
   position:relative;display:flex;align-items:center;gap:12px;
@@ -886,8 +903,6 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 }
 
 @media (max-width:1024px){
-  .rep{grid-template-columns:1fr 1fr}
-  .rep article:last-child{grid-column:1/-1}
   .member{width:148px}
 }
 
@@ -970,13 +985,15 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   .member-row__title::before,.member-row__title::after{flex-basis:22px}
   .member-row__grid{gap:28px 16px}
   .member{width:calc(50% - 8px);max-width:160px}
+  /* vedení: kapelník sám nahoře, pod ním oba zpěváci */
+  [data-section="vedeni"] .member-row__grid{align-items:flex-start}
+  [data-section="vedeni"] .member:nth-child(2){order:-1;width:100%;max-width:190px}
   .member__tile{border-radius:95px 95px 16px 16px}
   .member__tile::after{border-radius:88px 88px 12px 12px}
   .member__mono{font-size:1.7rem}
   .member__name{font-size:.9375rem}
   .member__role{font-size:.8125rem}
-  .rep{grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:24px}
-  .rep article{padding:12px 8px;text-align:center}
+  .rep-intro{margin-bottom:22px;font-size:.9375rem;text-align:center;margin-inline:auto}
   .song{text-align:center;align-items:center;padding:8px 10px}
   .song::before{position:static;display:block;margin-bottom:2px}
   .song__t,.song__a{white-space:normal}
@@ -1649,33 +1666,51 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
         <div class="member-row__grid">
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">ML</span>
-              <img src="/hudebnici/mirka-lendelova.png" width="330" height="440" loading="lazy" decoding="async" alt="Mirka Lendělová — zpěv, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/mirka-lendelova.png" width="330" height="440" loading="lazy" decoding="async" alt="Mirka Lendělová — zpěv, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Mirka Lendělová</span>
+                  <span class="member__role">zpěv</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Mirka Lendělová</span>
-              <span class="member__role">zpěv</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">ZK</span>
-              <img src="/hudebnici/zdenek-kram.png" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Krám — kapelník · pozoun, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/zdenek-kram.png" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Krám — kapelník · pozoun, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Zdeněk Krám</span>
+                  <span class="member__role">kapelník · pozoun</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Zdeněk Krám</span>
-              <span class="member__role">kapelník · pozoun</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">DK</span>
-              <img src="/hudebnici/david-klenha.png" width="330" height="440" loading="lazy" decoding="async" alt="David Kleňha — zpěv, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/david-klenha.png" width="330" height="440" loading="lazy" decoding="async" alt="David Kleňha — zpěv, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">David Kleňha</span>
+                  <span class="member__role">zpěv</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">David Kleňha</span>
-              <span class="member__role">zpěv</span>
-            </figcaption>
           </figure>
         </div>
       </div>
@@ -1684,43 +1719,67 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
         <div class="member-row__grid">
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">KŠ</span>
-              <img src="/hudebnici/karel-simandl.png" width="330" height="440" loading="lazy" decoding="async" alt="Karel Šimandl — piano, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/karel-simandl.png" width="330" height="440" loading="lazy" decoding="async" alt="Karel Šimandl — piano, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Karel Šimandl</span>
+                  <span class="member__role">piano</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Karel Šimandl</span>
-              <span class="member__role">piano</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">PH</span>
-              <img src="/hudebnici/pavel-horych.png" width="330" height="440" loading="lazy" decoding="async" alt="Pavel Horych — kytara, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/pavel-horych.png" width="330" height="440" loading="lazy" decoding="async" alt="Pavel Horych — kytara, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Pavel Horych</span>
+                  <span class="member__role">kytara</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Pavel Horych</span>
-              <span class="member__role">kytara</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">JS</span>
-              <img src="/hudebnici/jakub-smutny.png" width="330" height="440" loading="lazy" decoding="async" alt="Jakub Smutný — baskytara, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/jakub-smutny.png" width="330" height="440" loading="lazy" decoding="async" alt="Jakub Smutný — baskytara, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Jakub Smutný</span>
+                  <span class="member__role">baskytara</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Jakub Smutný</span>
-              <span class="member__role">baskytara</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">VV</span>
-              <img src="/hudebnici/vaclav-vejvoda.png" width="330" height="440" loading="lazy" decoding="async" alt="Václav Vejvoda — bicí nástroje, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/vaclav-vejvoda.png" width="330" height="440" loading="lazy" decoding="async" alt="Václav Vejvoda — bicí nástroje, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Václav Vejvoda</span>
+                  <span class="member__role">bicí nástroje</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Václav Vejvoda</span>
-              <span class="member__role">bicí nástroje</span>
-            </figcaption>
           </figure>
         </div>
       </div>
@@ -1729,53 +1788,83 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
         <div class="member-row__grid">
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">JŠ</span>
-              <img src="/hudebnici/jan-soltesz.png" width="330" height="440" loading="lazy" decoding="async" alt="Jan Šoltész — altsaxofon, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/jan-soltesz.png" width="330" height="440" loading="lazy" decoding="async" alt="Jan Šoltész — altsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Jan Šoltész</span>
+                  <span class="member__role">altsaxofon</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Jan Šoltész</span>
-              <span class="member__role">altsaxofon</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">AT</span>
-              <img src="/hudebnici/antonin-tynek.png" width="330" height="440" loading="lazy" decoding="async" alt="Antonín Týnek — altsaxofon, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/antonin-tynek.png" width="330" height="440" loading="lazy" decoding="async" alt="Antonín Týnek — altsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Antonín Týnek</span>
+                  <span class="member__role">altsaxofon</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Antonín Týnek</span>
-              <span class="member__role">altsaxofon</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">MS</span>
-              <img src="/hudebnici/milan-szep.png" width="330" height="440" loading="lazy" decoding="async" alt="Milan Szep — tenorsaxofon, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/milan-szep.png" width="330" height="440" loading="lazy" decoding="async" alt="Milan Szep — tenorsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Milan Szep</span>
+                  <span class="member__role">tenorsaxofon</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Milan Szep</span>
-              <span class="member__role">tenorsaxofon</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">VR</span>
-              <img src="/hudebnici/vaclav-rozec.png" width="330" height="440" loading="lazy" decoding="async" alt="Václav Rožec — tenorsaxofon, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/vaclav-rozec.png" width="330" height="440" loading="lazy" decoding="async" alt="Václav Rožec — tenorsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Václav Rožec</span>
+                  <span class="member__role">tenorsaxofon</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Václav Rožec</span>
-              <span class="member__role">tenorsaxofon</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">JD</span>
-              <img src="/hudebnici/jiri-drahokoupil.png" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Drahokoupil — barytonsaxofon, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/jiri-drahokoupil.png" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Drahokoupil — barytonsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Jiří Drahokoupil</span>
+                  <span class="member__role">barytonsaxofon</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Jiří Drahokoupil</span>
-              <span class="member__role">barytonsaxofon</span>
-            </figcaption>
           </figure>
         </div>
       </div>
@@ -1784,33 +1873,51 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
         <div class="member-row__grid">
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">PT</span>
-              <img src="/hudebnici/pavel-truhlar.png" width="330" height="440" loading="lazy" decoding="async" alt="Pavel Truhlář — pozoun, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/pavel-truhlar.png" width="330" height="440" loading="lazy" decoding="async" alt="Pavel Truhlář — pozoun, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Pavel Truhlář</span>
+                  <span class="member__role">pozoun</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Pavel Truhlář</span>
-              <span class="member__role">pozoun</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">JK</span>
-              <img src="/hudebnici/jiri-kares-st.png" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Kareš st. — pozoun, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/jiri-kares-st.png" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Kareš st. — pozoun, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Jiří Kareš st.</span>
+                  <span class="member__role">pozoun</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Jiří Kareš st.</span>
-              <span class="member__role">pozoun</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">JK</span>
-              <img src="/hudebnici/jiri-kares-ml.png" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Kareš ml. — pozoun, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/jiri-kares-ml.png" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Kareš ml. — pozoun, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Jiří Kareš ml.</span>
+                  <span class="member__role">pozoun</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Jiří Kareš ml.</span>
-              <span class="member__role">pozoun</span>
-            </figcaption>
           </figure>
         </div>
       </div>
@@ -1819,43 +1926,67 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
         <div class="member-row__grid">
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">JD</span>
-              <img src="/hudebnici/jaroslav-dlouhy.png" width="330" height="440" loading="lazy" decoding="async" alt="Jaroslav Dlouhý — trumpeta, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/jaroslav-dlouhy.png" width="330" height="440" loading="lazy" decoding="async" alt="Jaroslav Dlouhý — trumpeta, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Jaroslav Dlouhý</span>
+                  <span class="member__role">trumpeta</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Jaroslav Dlouhý</span>
-              <span class="member__role">trumpeta</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">JZ</span>
-              <img src="/hudebnici/jindrich-zmrzly.png" width="330" height="440" loading="lazy" decoding="async" alt="Jindřich Zmrzlý — trumpeta, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/jindrich-zmrzly.png" width="330" height="440" loading="lazy" decoding="async" alt="Jindřich Zmrzlý — trumpeta, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Jindřich Zmrzlý</span>
+                  <span class="member__role">trumpeta</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Jindřich Zmrzlý</span>
-              <span class="member__role">trumpeta</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">SB</span>
-              <img src="/hudebnici/stanislav-barta.png" width="330" height="440" loading="lazy" decoding="async" alt="Stanislav Bárta — trumpeta, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/stanislav-barta.png" width="330" height="440" loading="lazy" decoding="async" alt="Stanislav Bárta — trumpeta, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Stanislav Bárta</span>
+                  <span class="member__role">trumpeta</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Stanislav Bárta</span>
-              <span class="member__role">trumpeta</span>
-            </figcaption>
           </figure>
           <figure class="member">
             <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">ZH</span>
-              <img src="/hudebnici/zdenek-havlicek.png" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Havlíček — trumpeta, Big Band Karlovy Vary" onerror="this.remove()">
+              <span class="member__scene">
+                <span class="member__backdrop">
+                  <span class="member__halo"></span>
+                  <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
+                </span>
+                <span class="member__portrait"><img src="/hudebnici/zdenek-havlicek.png" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Havlíček — trumpeta, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__front">
+                  <span class="member__name">Zdeněk Havlíček</span>
+                  <span class="member__role">trumpeta</span>
+                </span>
+                <span class="member__glint" aria-hidden="true"></span>
+              </span>
             </div>
-            <figcaption>
-              <span class="member__name">Zdeněk Havlíček</span>
-              <span class="member__role">trumpeta</span>
-            </figcaption>
           </figure>
         </div>
       </div>
@@ -1876,23 +2007,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
       </div>
     </div>
 
-    <div class="rep reveal-stagger">
-      <article>
-        <span>01</span>
-        <h3>Swing</h3>
-        <p>Big bandová klasika třicátých a&nbsp;čtyřicátých let — k&nbsp;poslechu i&nbsp;k&nbsp;tanci.</p>
-      </article>
-      <article>
-        <span>02</span>
-        <h3>Latin</h3>
-        <p>Bossa nova, samba a&nbsp;latinskoamerické rytmy v&nbsp;big bandovém provedení.</p>
-      </article>
-      <article>
-        <span>03</span>
-        <h3>Pop</h3>
-        <p>Známé melodie v&nbsp;orchestrálních aranžích napříč generacemi.</p>
-      </article>
-    </div>
+    <p class="rep-intro reveal">Swing třicátých a&nbsp;čtyřicátých let, latinské rytmy i&nbsp;známé popové melodie v&nbsp;orchestrálních aranžích.</p>
 
     <div class="rep-player reveal">
       <button type="button" class="rail-arrow" id="repPrev" aria-label="Předchozí skladby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8"/></svg></button>
