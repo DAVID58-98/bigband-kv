@@ -319,9 +319,8 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .hero-eq .bar{position:absolute;top:50%;left:50%;width:2px;margin-left:-1px;transform-origin:50% 0}
 .hero-eq .bar i{position:absolute;top:31%;left:0;width:2.4px;border-radius:2px;background:var(--red);opacity:.55}
 .hero-seal__core{position:relative;z-index:2;width:72%;height:72%;border-radius:50%;background:var(--paper);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}
-.hero-seal__mark{width:78%;aspect-ratio:2.2;margin:14px 0 8px;color:var(--red);display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 8px 8px #51203218)}
+.hero-seal__mark{width:78%;aspect-ratio:2.2;margin:0 0 8px;color:var(--red);display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 8px 8px #51203218)}
 .hero-seal__mark svg{width:100%;height:auto;aspect-ratio:1983/793;fill:currentColor;transform:rotate(14deg) scaleX(-1)}
-.hero-seal__top{font-size:.625rem;letter-spacing:.2em;color:var(--wine)}
 .hero-seal__date{font:400 1.3125rem/1.3 var(--display);letter-spacing:.17em;color:var(--gold)}
 .hero-seal__bottom{font-size:.5625rem;letter-spacing:.2em;color:var(--gold);margin-top:12px}
 .hero-seal__star{font-size:1.4375rem;line-height:1;position:absolute;z-index:3;top:calc(5% - 11px);left:calc(50% - 12px);padding:0 4px;background:var(--paper);color:var(--gold)}
@@ -336,7 +335,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 /* ============================================================
    GALERIE — běžící pás fotografií
    ============================================================ */
-.gallery{border-top:1px solid var(--line)}
+.gallery{}
 .strip{position:relative;overflow:hidden;width:100%}
 /* pás je ostře zakončený uvnitř mřížky stránky */
 .strip{width:min(100% - var(--gutter)*2,var(--maxw));margin-inline:auto;border-radius:18px}
@@ -509,12 +508,16 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .theatre-scene > picture,.theatre-scene > picture img{position:absolute;inset:0;width:100%;height:100%}
 .theatre-scene > picture img{object-fit:cover;object-position:50% 50%}
 .theatre-scene > picture{
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.18) 7%,rgba(0,0,0,.6) 14%,#000 22%,#000 86%,rgba(0,0,0,.45) 95%,transparent 100%);
-          mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.18) 7%,rgba(0,0,0,.6) 14%,#000 22%,#000 86%,rgba(0,0,0,.45) 95%,transparent 100%);
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.55) 0,#000 6%,#000 92%,rgba(0,0,0,.5) 100%);
+          mask-image:linear-gradient(180deg,rgba(0,0,0,.55) 0,#000 6%,#000 92%,rgba(0,0,0,.5) 100%);
 }
 .theatre-scene::before{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,var(--paper) 0,var(--paper) 6%,#f0ecdf00 20%,#f0ecdf00 86%,var(--paper) 100%);
+  background:linear-gradient(180deg,var(--paper) 0,#f0ecdf00 7%,#f0ecdf00 93%,var(--paper) 100%);
+}
+@media (max-width:700px){
+  /* na výškovém obrázku ať je náběh o něco delší, ať nezůstane ostrý okraj */
+  .theatre-scene::before{background:linear-gradient(180deg,var(--paper) 0,#f0ecdf00 5%,#f0ecdf00 95%,var(--paper) 100%)}
 }
 .theatre-copy{
   position:absolute;left:23%;right:23%;top:22%;bottom:20%;z-index:2;
@@ -671,38 +674,42 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .rep-intro b{color:var(--wine);font-weight:600}
 
 .rep-player{
-  position:relative;display:flex;align-items:center;gap:12px;
-  background:var(--wine);border-radius:24px;padding:20px 18px;
+  position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;
+  max-width:420px;margin-inline:auto;
+  background:var(--wine);border-radius:20px;padding:6px 18px 10px;
   box-shadow:0 22px 50px -32px #35171f80;
 }
-.rep-player .rail-arrow{border-color:#e6ceb64a;color:var(--paper)}
-.rep-player .rail-arrow:hover:not([disabled]){background:var(--paper);color:var(--wine)}
+/* sipky bez vlastniho pozadi - jen zuzuji dlazdici svym mistem v toku */
+.rep-arrow{
+  flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  width:100%;height:26px;color:#e6ceb499;background:none;border:0;cursor:pointer;
+  transition:color .2s;
+}
+.rep-arrow:hover{color:var(--paper-light)}
+.rep-arrow svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .songs-viewport{
-  position:relative;flex:1;min-width:0;overflow:hidden;
-  -webkit-mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
-          mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  position:relative;width:100%;height:236px;overflow:hidden;
+  -webkit-mask:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);
+          mask:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);
 }
-/* Dlaždice skladeb.
-   Dlaždice tečou ve třech řadách a každá je jen tak široká, jak potřebuje. */
 .songs{
-  display:grid;grid-auto-flow:column;grid-template-rows:repeat(3,auto);grid-auto-columns:max-content;
-  gap:10px;padding:0;margin:0;border:0;list-style:none;width:max-content;
-  transition:transform .55s cubic-bezier(.2,.8,.2,1);
+  display:flex;flex-direction:column;gap:6px;padding:0;margin:0;border:0;list-style:none;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
 }
-.songs.is-auto{animation:songScroll var(--dur,120s) linear infinite}
+.songs.is-auto{animation:songScroll var(--dur,80s) linear infinite}
 .songs-viewport:hover .songs.is-auto,.songs-viewport:focus-within .songs.is-auto{animation-play-state:paused}
-@keyframes songScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes songScroll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
 .song{
-  position:relative;display:flex;flex-direction:column;gap:1px;
-  border:1px solid #e6ceb62e;border-radius:16px;
-  background:#f0ecdf0f;padding:10px 14px 10px 32px;transition:background .2s,transform .2s;
+  position:relative;display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  border-radius:11px;background:#f0ecdf0f;padding:8px 14px 8px 30px;transition:background .2s;
 }
-.song:hover{background:#f0ecdf1a;transform:translateY(-3px)}
-.song::before{content:"♪";position:absolute;left:12px;top:10px;color:var(--on-wine-soft);font-size:13px}
-.song__t{font-size:.8125rem;font-weight:600;line-height:1.3;color:var(--paper-light);white-space:nowrap}
-.song__a{font-size:.6875rem;color:var(--on-wine);white-space:nowrap}
+.song:hover{background:#f0ecdf1a}
+.song::before{content:"\266A";position:absolute;left:12px;top:9px;color:var(--on-wine-soft);font-size:11px}
+.song__t{font-size:.8125rem;font-weight:600;line-height:1.3;color:var(--paper-light);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.song__a{flex:0 0 auto;font-size:.6875rem;color:var(--on-wine);white-space:nowrap}
 .songs.is-collapsed .song{display:flex}
 .songs-foot{display:none}
+.rep-note{margin-top:16px;text-align:center;font-size:.8125rem;color:var(--muted)}
 .rep-note{margin-top:16px;text-align:center;font-size:.8125rem;color:var(--muted)}
 
 /* ============================================================
@@ -938,7 +945,6 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   .hero__actions{margin-top:26px;gap:12px 22px}
   .hero__actions .button{padding:13px 22px}
   .hero-seal{width:260px;max-width:85%;justify-self:center;margin-block:0 12px}
-  .hero-seal__top{font-size:.4375rem}
   .hero-seal__bottom{font-size:.375rem}
   .section-head{display:block;margin-bottom:36px}
   .section-head .lead{margin-top:24px;max-width:360px}
@@ -990,15 +996,9 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   .member__role{font-size:7.5px;letter-spacing:.1em}
   .member__portrait{inset:8px 7% 44px}
   .rep-intro{margin-bottom:22px;font-size:.9375rem;text-align:center;margin-inline:auto}
-  .song{text-align:center;align-items:center;padding:8px 10px}
-  .song::before{position:static;display:block;margin-bottom:2px}
-  .song__t,.song__a{white-space:normal}
   .rep h3{font-size:1.1rem;margin-bottom:4px}
   .rep p{font-size:.8125rem}
   .rep article > span{font-size:.625rem;margin-bottom:2px}
-  .songs{grid-template-columns:1fr}
-  .song{gap:18px}
-  .songs-foot .button{max-width:100%}
   .faq summary{font-size:.9375rem;padding-block:18px}
   .faq p{padding-right:24px}
   .booking-tags{gap:12px 20px;font-size:.875rem}
@@ -1038,10 +1038,10 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   .about__year{justify-content:center}
   .about .lead{margin-inline:auto}
   .rep article{text-align:center}
-  .rep-player{padding:20px 14px;border-radius:22px}
-  .songs{grid-template-rows:repeat(3,auto);gap:8px}
-  .song{padding:8px 11px 8px 26px}
-  .song::before{left:10px;top:9px;font-size:12px}
+  .rep-player{max-width:320px;padding:4px 10px 8px}
+  .songs-viewport{height:190px}
+  .song{padding:7px 12px 7px 24px}
+  .song::before{left:10px;top:8px;font-size:10px}
   .song__t{font-size:.75rem}
   .song__a{font-size:.625rem}
   .booking .lead + .button{margin-top:26px}
@@ -1166,19 +1166,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .hero-seal .hero-seal__axis{opacity:.4}
 .hero-seal .hero-seal__star{animation:none;opacity:.8;transform:none;z-index:3}
 .hero-seal .hero-seal__core{z-index:2}
-.hero-eq-toggle{
- position:absolute;z-index:4;right:1px;bottom:1px;width:44px;height:44px;
- display:grid;place-items:center;border:0;border-radius:50%;background:transparent;
- color:var(--gold);opacity:.72;transition:color .2s,opacity .2s,background .2s;
-}
-.hero-eq-toggle::before{content:'';position:absolute;inset:7px;border:1px solid var(--line);border-radius:50%}
-.hero-eq-toggle:hover,.hero-eq-toggle:focus-visible{opacity:1;color:var(--wine);background:#92734b0c}
-.hero-eq-toggle svg{width:13px;height:13px;fill:currentColor}
-.hero-eq-toggle .eq-play{display:none}
-.hero-eq-toggle[aria-pressed=true] .eq-play{display:block}
-.hero-eq-toggle[aria-pressed=true] .eq-pause{display:none}
-@media(prefers-reduced-motion:reduce){.hero-eq-toggle{display:none}.hero-seal .hero-seal__star{animation:none}}
-@media print{.hero-eq-toggle{display:none}}
+@media(prefers-reduced-motion:reduce){.hero-seal .hero-seal__star{animation:none}}
 
 </style>
 </head>
@@ -1274,7 +1262,6 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     <div class="hero-seal__ring hero-seal__ring--inner"></div>
     <span class="hero-seal__star">✧</span>
     <div class="hero-seal__core">
-      <span class="hero-seal__top">HUDBA, KTERÁ SPOJUJE</span>
       <span class="hero-seal__mark"><svg><use href="#bb-trumpet"/></svg></span>
       <span class="hero-seal__date">EST. 1986</span>
       <span class="hero-seal__bottom">BIG BAND KARLOVY VARY</span>
@@ -1658,7 +1645,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 
 <!-- Obsazení orchestru — edituj přímo tady -->
       <div class="member-row reveal-stagger" data-section="vedeni">
-        <h3 class="member-row__title">Vedení orchestru a sólisté</h3>
+        <h3 class="member-row__title">Vedení a sólisté</h3>
         <div class="member-row__grid">
           <figure class="member">
             <div class="member__tile">
@@ -2006,7 +1993,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     <p class="rep-intro reveal"><b>Swing</b> třicátých a&nbsp;čtyřicátých let, <b>latinské</b> rytmy i&nbsp;známé <b>popové</b> melodie v&nbsp;orchestrálních aranžích.</p>
 
     <div class="rep-player reveal">
-      <button type="button" class="rail-arrow" id="repPrev" aria-label="Předchozí skladby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8"/></svg></button>
+      <button type="button" class="rep-arrow" id="repPrev" aria-label="Předchozí skladby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15 12 9l-6 6"/></svg></button>
       <div class="songs-viewport" id="songsViewport">
 <!-- Seznam skladeb — edituj přímo tady -->
         <ul class="songs is-collapsed" id="songList">
@@ -2066,7 +2053,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
         </div>
 <!-- /Seznam skladeb -->
       </div>
-      <button type="button" class="rail-arrow" id="repNext" aria-label="Další skladby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg></button>
+      <button type="button" class="rep-arrow" id="repNext" aria-label="Další skladby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
     </div>
     <p class="rep-note">Ukázka vokálního repertoáru. Orchestr hraje i&nbsp;instrumentální program.</p>
   </div>
@@ -2833,19 +2820,19 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     var pozice = 0;
     function krok(smer){
       if(list.classList.contains('is-auto')){
-        var t = list.getBoundingClientRect().left - box.getBoundingClientRect().left;
+        var t = list.getBoundingClientRect().top - box.getBoundingClientRect().top;
         list.classList.remove('is-auto');
         list.style.transition = 'none';
         pozice = t;
-        list.style.transform = 'translateX(' + pozice + 'px)';
+        list.style.transform = 'translateY(' + pozice + 'px)';
         void list.offsetHeight;
         list.style.transition = '';
       }
-      var max = list.scrollWidth / 2;
-      pozice -= smer * box.clientWidth * 0.8;
+      var max = list.scrollHeight / 2;
+      pozice -= smer * box.clientHeight * 0.85;
       if(pozice > 0) pozice -= max;
       if(pozice < -max) pozice += max;
-      list.style.transform = 'translateX(' + pozice + 'px)';
+      list.style.transform = 'translateY(' + pozice + 'px)';
     }
     var b;
     if((b = $('#repNext'))) b.addEventListener('click', function(){ krok(1); });
@@ -2983,17 +2970,10 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     host.replaceChildren(canvas);host.setAttribute('aria-hidden','true');
     seal.removeAttribute('aria-hidden');
     Array.from(seal.children).forEach(function(el){el.setAttribute('aria-hidden','true');});
-    var control=d.createElement('button');control.type='button';control.className='hero-eq-toggle';
-    control.setAttribute('aria-label','Pozastavit animaci ekvalizéru');control.setAttribute('aria-pressed','false');
-    control.title='Pozastavit animaci';
-    control.innerHTML='<svg class="eq-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h2.5v10H4zm5.5 0H12v10H9.5z"/></svg><svg class="eq-play" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 2 9 6-9 6z"/></svg>';
-    seal.appendChild(control);
-
     var media=W.matchMedia('(prefers-reduced-motion: reduce)');
     var count=160, TAU=Math.PI*2, levels=new Float32Array(count), peaks=new Float32Array(count);
     var frame=0, last=0, time=0, size=0, unit=0, center=0, dpr=1;
-    var paused=false, visible=true, destroyed=false, hover=0, hoverTarget=0;
-    var curtain=d.querySelector('.bb-curtain');
+    var visible=true, destroyed=false, hover=0, hoverTarget=0;
     var cos=new Float32Array(count), sin=new Float32Array(count), jitter=new Float32Array(count);
     function fract(n){return n-Math.floor(n);}
     function hash(n){return fract(Math.sin(n*127.1+311.7)*43758.5453);}
@@ -3072,10 +3052,8 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     function state(){
       if(destroyed)return 'destroyed';
       if(media.matches)return 'reduced';
-      if(paused)return 'paused';
       if(d.hidden)return 'hidden';
       if(!visible)return 'offscreen';
-      if(curtain&&!curtain.hidden)return 'curtain';
       return 'running';
     }
     function loop(now){
@@ -3089,7 +3067,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
       frame=W.requestAnimationFrame(loop);
     }
     function sync(){
-      var s=state();host.dataset.state=s;control.hidden=media.matches;
+      var s=state();host.dataset.state=s;
       if(s==='running'){
         if(!frame){last=0;frame=W.requestAnimationFrame(loop);}
       }else{
@@ -3103,31 +3081,23 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
       canvas.width=Math.round(size*dpr);canvas.height=Math.round(size*dpr);
       ctx.setTransform(dpr,0,0,dpr,0,0);paint(time,.016,media.matches);sync();
     }
-    function setPaused(value){
-      paused=value;control.setAttribute('aria-pressed',String(paused));
-      control.setAttribute('aria-label',paused?'Spustit animaci ekvalizéru':'Pozastavit animaci ekvalizéru');
-      control.title=paused?'Spustit animaci':'Pozastavit animaci';sync();
-    }
-    control.addEventListener('click',function(){setPaused(!paused);});
     function enter(){hoverTarget=1;}function leave(){hoverTarget=0;}
     if(W.matchMedia('(hover:hover) and (pointer:fine)').matches){seal.addEventListener('pointerenter',enter);seal.addEventListener('pointerleave',leave);}
-    var visibilityObserver=null,resizeObserver=null,curtainObserver=null;
+    var visibilityObserver=null,resizeObserver=null;
     if('IntersectionObserver' in W){
       visibilityObserver=new IntersectionObserver(function(entries){visible=entries[0].isIntersecting;sync();},{threshold:.05});visibilityObserver.observe(seal);
     }
     if('ResizeObserver' in W){resizeObserver=new ResizeObserver(resize);resizeObserver.observe(host);}
     W.addEventListener('resize',resize,{passive:true});
     d.addEventListener('visibilitychange',sync);media.addEventListener('change',sync);
-    if(curtain){curtainObserver=new MutationObserver(sync);curtainObserver.observe(curtain,{attributes:true,attributeFilter:['hidden']});}
     resize();
     W.bbHeroEqualizer={
-      pause:function(){setPaused(true);},resume:function(){setPaused(false);},
       get state(){return state();},
       destroy:function(){
         destroyed=true;sync();
-        if(visibilityObserver)visibilityObserver.disconnect();if(resizeObserver)resizeObserver.disconnect();if(curtainObserver)curtainObserver.disconnect();
+        if(visibilityObserver)visibilityObserver.disconnect();if(resizeObserver)resizeObserver.disconnect();
         W.removeEventListener('resize',resize);d.removeEventListener('visibilitychange',sync);media.removeEventListener('change',sync);
-        seal.removeEventListener('pointerenter',enter);seal.removeEventListener('pointerleave',leave);control.remove();
+        seal.removeEventListener('pointerenter',enter);seal.removeEventListener('pointerleave',leave);
       }
     };
   });
