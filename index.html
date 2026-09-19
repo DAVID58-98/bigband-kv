@@ -338,12 +338,8 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
    ============================================================ */
 .gallery{border-top:1px solid var(--line)}
 .strip{position:relative;overflow:hidden;width:100%}
-/* pás na obou koncích plynule mizí do papíru */
-.strip::before,.strip::after{
-  content:"";position:absolute;top:0;bottom:0;width:clamp(60px,12vw,190px);z-index:2;pointer-events:none;
-}
-.strip::before{left:0;background:linear-gradient(90deg,var(--paper) 12%,#f0ecdf00)}
-.strip::after{right:0;background:linear-gradient(270deg,var(--paper) 12%,#f0ecdf00)}
+/* pás je ostře zakončený uvnitř mřížky stránky */
+.strip{width:min(100% - var(--gutter)*2,var(--maxw));margin-inline:auto;border-radius:18px}
 .strip figure{cursor:zoom-in}
 .strip__track{display:flex;gap:28px;width:max-content;animation:slide 260s linear infinite}
 .strip:hover .strip__track,.strip:focus-within .strip__track{animation-play-state:paused}
@@ -452,7 +448,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 /* ============================================================
    O KAPELE
    ============================================================ */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,115px);align-items:center}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,115px);align-items:stretch}
 .about h2{margin-top:0}
 .about__year{display:flex;align-items:flex-start;gap:16px;margin:22px 0 20px}
 .about__year b{font:400 3.6rem/.9 var(--display);letter-spacing:-.04em;color:var(--red)}
@@ -461,19 +457,15 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .about .lead + .lead{margin-top:14px}
 .about .lead b{color:var(--ink)}
 .stats{
-  display:grid;grid-template-columns:repeat(3,1fr);margin-top:28px;
-  background:linear-gradient(120deg,var(--wine),#6d2436 60%,var(--red));
-  border-radius:20px;padding:18px 6px;text-align:center;
-  box-shadow:0 18px 40px -26px #4c1828b3;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  margin-top:clamp(56px,7vw,96px);text-align:center;
 }
-.stats > div{padding-inline:14px;border-left:1px solid #e6ceb62e;min-width:0}
-.stats > div:first-child{border:0}
-.stats b{display:block;font:400 1.9rem/1.1 var(--display);color:var(--paper-light);font-variant-numeric:tabular-nums}
-.stats span{display:block;font-size:.75rem;color:var(--on-wine-soft);margin-top:4px;line-height:1.4}
+.stats b{display:block;font:400 clamp(2.6rem,5vw,4rem)/1 var(--display);color:var(--red);font-variant-numeric:tabular-nums}
+.stats span{display:block;font-size:.9375rem;color:var(--muted);margin-top:12px;line-height:1.5}
 
-.about-photo{position:relative}
+.about-photo{position:relative;display:flex;align-items:flex-end}
 .arch-photo{
-  position:relative;overflow:hidden;width:100%;max-width:560px;margin-inline:auto;aspect-ratio:1.35;
+  position:relative;overflow:hidden;width:100%;max-width:620px;margin-inline:auto;aspect-ratio:1.35;
   background:var(--paper-dk);border-radius:170px 170px 22px 22px;
 }
 .arch-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:saturate(.67);position:relative;z-index:1}
@@ -584,6 +576,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .yt__meta{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;padding-top:16px;align-items:baseline}
 .yt__num{font-size:.6875rem;letter-spacing:.12em;color:var(--gold)}
 .yt__title{font:400 1.0625rem/1.3 var(--display);color:var(--wine)}
+.yt__author{display:block;margin-top:3px;font:400 .75rem/1.4 var(--body);color:var(--muted)}
 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
 /* ============================================================
@@ -600,40 +593,44 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .member{width:160px;text-align:center}
 .member__tile{
   position:relative;aspect-ratio:3/4;overflow:hidden;
-  border:1px solid #9b26364a;border-radius:130px 130px 20px 20px;
+  border:1px solid #92734b3d;border-radius:130px 130px 20px 20px;
   background:
-    radial-gradient(70% 45% at 50% 108%,#9b263666,transparent 70%),
-    linear-gradient(170deg,#5d1d2c 0%,#7d2536 46%,#a8384a 100%);
-  box-shadow:0 16px 34px -22px #4c1828b3;
-  transition:transform .4s cubic-bezier(.22,.8,.3,1),box-shadow .4s,border-color .3s;
+    radial-gradient(75% 48% at 50% 104%,#9b263621,transparent 72%),
+    linear-gradient(172deg,#fffdf8 0%,#f7f0e3 52%,#ece1cf 100%);
+  box-shadow:inset 0 1px 0 #fff,0 14px 30px -22px #35171f80;
+  transition:transform .45s cubic-bezier(.22,.8,.3,1),box-shadow .45s,border-color .3s;
+  transform-style:preserve-3d;
 }
-/* jemný zlatý rámeček uvnitř a světlý kruh za postavou */
+/* rudá linka pod postavou + jemný oblouk uvnitř */
 .member__tile::before{
-  content:"";position:absolute;left:50%;top:46%;width:82%;aspect-ratio:1;transform:translate(-50%,-50%);
-  border-radius:50%;background:radial-gradient(circle,#f6e6cf38,transparent 68%);z-index:0;
+  content:"";position:absolute;left:18%;right:18%;bottom:11%;height:2px;z-index:2;
+  background:linear-gradient(90deg,#9b263600,var(--red),#9b263600);
+  transform:scaleX(.7);transform-origin:center;transition:transform .45s,opacity .45s;opacity:.75;
 }
 .member__tile::after{
   content:"";position:absolute;left:6%;right:6%;top:4%;bottom:5%;z-index:3;pointer-events:none;
-  border:1px solid #e6ceb63d;border-radius:120px 120px 14px 14px;
+  border:1px solid #9b26362e;border-radius:120px 120px 14px 14px;
 }
 .member:hover .member__tile{
-  transform:translateY(-8px);border-color:#e6ceb68a;
-  box-shadow:0 28px 52px -22px #4c1828cc;
+  transform:perspective(900px) rotateX(5deg) translateY(-10px);
+  border-color:#9b263673;
+  box-shadow:inset 0 1px 0 #fff,0 30px 46px -24px #4c182899;
 }
+.member:hover .member__tile::before{transform:scaleX(1);opacity:1}
 .member__mono{
   position:absolute;left:0;right:0;top:44%;transform:translateY(-50%);
-  font:400 2rem/1 var(--display);letter-spacing:.1em;color:#f0ecdf2e;z-index:1;
+  font:400 2rem/1 var(--display);letter-spacing:.1em;color:#9b26362e;z-index:0;
 }
 .member__tile img{
-  position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:contain;object-position:bottom center;
+  position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:contain;object-position:bottom center;
   transform-origin:50% 100%;
   transition:transform .5s cubic-bezier(.22,.8,.3,1),filter .5s;
-  filter:drop-shadow(0 12px 18px #2a0c1466);
+  filter:drop-shadow(0 10px 14px #35171f2e);
 }
-.member:hover .member__tile img{transform:scale(1.12)}
+.member:hover .member__tile img{transform:scale(1.1)}
 /* po dorovnání skriptem řídí přiblížení proměnné */
 .member__tile img.is-zarovnany{transform:translate(var(--posunX,0),var(--posunY,0)) scale(var(--zvet,1))}
-.member:hover .member__tile img.is-zarovnany{transform:translate(var(--posunX,0),var(--posunY,0)) scale(calc(var(--zvet,1) * 1.12))}
+.member:hover .member__tile img.is-zarovnany{transform:translate(var(--posunX,0),var(--posunY,0)) scale(calc(var(--zvet,1) * 1.1))}
 .member__name{display:block;margin-top:14px;font-size:.9375rem;font-weight:600;line-height:1.3;color:var(--wine)}
 .member__role{display:block;margin-top:4px;font-size:.75rem;color:var(--muted);line-height:1.4}
 .member--todo .member__role{opacity:.7}
@@ -659,7 +656,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   -webkit-mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
           mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
 }
-/* .songs a .song generuje build/generate.mjs — třídy musí zůstat.
+/* Dlaždice skladeb.
    Dlaždice tečou ve třech řadách a každá je jen tak široká, jak potřebuje. */
 .songs{
   display:grid;grid-auto-flow:column;grid-template-rows:repeat(3,auto);grid-auto-columns:max-content;
@@ -729,58 +726,58 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .booking::before{width:650px;height:650px;border:1px solid #d1b99120}
 .booking::after{width:700px;height:700px;border:1px solid #d1b99110}
 .booking-inner{position:relative;text-align:center;z-index:1}
+/* velká světlá trumpeta jako vodoznak sekce */
+.booking-mark{
+  position:absolute;right:-6%;top:50%;transform:translateY(-50%) rotate(-8deg);
+  width:min(760px,68%);z-index:0;color:#f0ecdf;opacity:.09;pointer-events:none;
+}
+.booking-mark svg{width:100%;height:auto;aspect-ratio:1983/793;fill:currentColor}
+@media (max-width:900px){.booking-mark{width:120%;right:-25%;opacity:.07}}
 .booking .lead + .button{margin-top:32px}
 .booking-arrow{display:none}
 .booking-arrow svg{width:26px;height:26px;fill:none;stroke:var(--paper-light);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .booking h2{font-size:clamp(2.4rem,4.4vw,4rem)}
 .booking .lead{margin:20px auto 0;font-size:1rem;max-width:56ch}
 /* ============================================================
-   KONTAKT — dlaždice s fotkou kapelníka
+   KONTAKT — kapelník vedle vycentrovaných údajů
    ============================================================ */
 .contact-card{
-  position:relative;max-width:900px;margin:0 auto;overflow:hidden;
-  display:grid;grid-template-columns:.85fr 1.15fr;align-items:end;gap:0;
-  border:1px solid #92734b3d;border-radius:26px;
-  background:linear-gradient(140deg,#fbf8f0,var(--paper-light) 55%,#efe6d6);
-  box-shadow:0 26px 60px -34px #35171f73;
+  max-width:720px;margin:0 auto;text-align:center;
+  display:flex;align-items:flex-end;justify-content:center;gap:clamp(20px,4vw,52px);
 }
 .contact-portrait{
-  position:relative;align-self:end;min-height:300px;
-  display:flex;align-items:flex-end;justify-content:center;
+  position:relative;flex:0 0 auto;width:clamp(120px,15vw,180px);align-self:flex-end;
 }
 .contact-portrait::before{
-  content:"";position:absolute;left:8%;right:8%;bottom:0;top:8%;z-index:0;
-  border-radius:180px 180px 0 0;
-  background:radial-gradient(75% 55% at 50% 100%,#9b263640,transparent 72%),
-             linear-gradient(170deg,#7d2536 0%,#9b2636 55%,#b8394a 100%);
+  content:"";position:absolute;left:0;right:0;bottom:0;top:12%;z-index:0;
+  border-radius:120px 120px 16px 16px;
+  background:linear-gradient(175deg,#fffdf8,#f4ebdc 60%,#e8dcc8);
+  border:1px solid #92734b3d;
 }
-.contact-portrait img{
-  position:relative;z-index:1;width:100%;max-width:330px;height:auto;
-  object-fit:contain;object-position:bottom center;
-  filter:drop-shadow(0 16px 22px #2a0c1440);
+.contact-portrait::after{
+  content:"";position:absolute;left:16%;right:16%;bottom:9%;height:2px;z-index:2;
+  background:linear-gradient(90deg,#9b263600,var(--red),#9b263600);
 }
-.contact-body{padding:44px 44px 44px 30px;text-align:left}
+.contact-portrait img{position:relative;z-index:1;width:100%;height:auto;display:block;filter:drop-shadow(0 10px 14px #35171f26)}
+.contact-body{padding-bottom:10px;text-align:center}
 .contact__role{display:block;font-size:.6875rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
-.contact__name{font:400 2.1rem/1.2 var(--display);color:var(--wine);margin:8px 0 24px}
-.contact__links{display:flex;flex-direction:column;gap:11px;align-items:flex-start}
+.contact__name{font:400 2rem/1.2 var(--display);color:var(--wine);margin:8px 0 22px}
+.contact__links{display:flex;flex-direction:column;gap:11px;align-items:center}
 .contact__links a{
-  display:inline-flex;align-items:center;justify-content:flex-start;gap:14px;
-  min-height:50px;width:100%;max-width:340px;padding:12px 24px;border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;gap:14px;
+  min-height:50px;width:100%;max-width:330px;padding:12px 24px;border-radius:999px;
   border:1px solid #602d4140;font-size:1.0625rem;color:var(--wine);
   transition:border-color .22s,color .22s,background .22s,transform .22s;
 }
 .contact__links a:hover{background:var(--wine);color:var(--paper-light);border-color:var(--wine);transform:translateY(-2px)}
 .contact__links svg{width:18px;height:18px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.contact__note{margin-top:22px;font-size:.875rem;color:var(--muted);max-width:38ch}
-@media (max-width:900px){
-  .contact-card{grid-template-columns:1fr;text-align:center}
-  .contact-portrait{min-height:0;order:-1;padding-top:22px}
-  .contact-portrait::before{left:18%;right:18%;top:14%;border-radius:150px 150px 0 0}
-  .contact-portrait img{max-width:230px}
-  .contact-body{padding:26px 22px 34px;text-align:center}
-  .contact__links{align-items:center}
-  .contact__links a{justify-content:center;max-width:100%}
-  .contact__note{margin-inline:auto}
+.contact__note{margin:22px auto 0;font-size:.875rem;color:var(--muted);max-width:38ch}
+@media (max-width:700px){
+  .contact-card{flex-direction:column;align-items:center;gap:18px}
+  .contact-portrait{width:150px}
+  .contact-body{padding-bottom:0}
+  .contact__name{font-size:1.7rem}
+  .contact__links a{font-size:.9375rem;max-width:100%}
 }
 
 /* ============================================================
@@ -908,7 +905,6 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   .section-head{gap:35px}
   .section-head .lead{max-width:290px}
   .about{grid-template-columns:1fr;gap:44px}
-  .stats b{font-size:1.6rem}
   .rep{gap:24px}
   .songs{column-gap:30px}
   .yt{flex-basis:360px}
@@ -956,16 +952,14 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   .about__col:not(.about-photo){display:contents}
   .about__col > .eyebrow{order:1}
   .about__col > h2{order:2}
-  .about-photo{order:3;width:100%;margin-block:22px 6px}
-  .about__col > .lead{order:4}
-  .about__year{order:5;margin:20px 0 0;justify-content:center}
-  .about__year b{font-size:3rem}
-  .stats{order:6;margin-top:24px;grid-template-columns:repeat(3,1fr);padding:16px 2px;border-radius:18px}
+  .about__year{order:3;margin:16px 0 0;justify-content:center}
+  .about__year b{font-size:2.6rem}
+  .about-photo{order:4;width:100%;margin-block:22px 6px}
+  .about__col > .lead{order:5}
+  .stats{grid-template-columns:repeat(3,1fr);gap:10px;margin-top:38px}
+  .stats b{font-size:1.9rem}
+  .stats span{font-size:.75rem;margin-top:6px}
   .arch-photo{max-width:100%;margin-inline:auto;aspect-ratio:1.3;border-radius:120px 120px 18px 18px}
-  .stats > div{padding-inline:6px}
-  .stats > div:first-child{border:0}
-  .stats b{font-size:clamp(1.3rem,5.4vw,1.7rem)}
-  .stats span{font-size:.625rem;letter-spacing:.02em}
   .vid-rail{gap:18px}
   .vid-rail::before,.vid-rail::after{flex-basis:calc(50% - 125px)}
   .yt{flex-basis:250px;max-width:74vw}
@@ -981,9 +975,11 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   .member__mono{font-size:1.7rem}
   .member__name{font-size:.9375rem}
   .member__role{font-size:.8125rem}
-  .rep{grid-template-columns:1fr 1fr;gap:10px;margin-bottom:26px}
-  .rep article{padding:14px 12px}
-  .rep article:last-child{grid-column:1/-1}
+  .rep{grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:24px}
+  .rep article{padding:12px 8px;text-align:center}
+  .song{text-align:center;align-items:center;padding:8px 10px}
+  .song::before{position:static;display:block;margin-bottom:2px}
+  .song__t,.song__a{white-space:normal}
   .rep h3{font-size:1.1rem;margin-bottom:4px}
   .rep p{font-size:.8125rem}
   .rep article > span{font-size:.625rem;margin-bottom:2px}
@@ -994,7 +990,9 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   .faq p{padding-right:24px}
   .booking-tags{gap:12px 20px;font-size:.875rem}
   .booking .lead{font-size:1.0625rem}
-  .booking h2{font-size:clamp(2.9rem,11vw,4rem)}
+  .booking h2{font-size:clamp(1.9rem,7.4vw,2.5rem)}
+  .booking .lead{font-size:.9375rem}
+  .booking .eyebrow{font-size:.6875rem}
   .contact-card{border-radius:22px}
   .contact__name{font-size:1.7rem}
   .contact__links a{font-size:.9375rem}
@@ -1093,7 +1091,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   position:fixed;inset:0;z-index:10000;overflow:hidden;
   isolation:isolate;contain:layout paint style;color:#f3eadb;
   pointer-events:auto;touch-action:none;
-  font-family:var(--body);
+  font-family:Arial,Helvetica,sans-serif;
 }
 .bb-curtain[hidden],.bb-curtain [hidden]{display:none!important}
 .bb-curtain *,.bb-curtain *::before,.bb-curtain *::after{box-sizing:border-box}
@@ -1117,11 +1115,12 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   text-align:center;pointer-events:none;will-change:opacity;
   text-shadow:0 2px 25px #16030955;
 }
-/* „Od roku 1986" — lehce větší než v původním efektu */
-.bb-curtain__eyebrow{color:var(--bb-gold);font-size:clamp(12px,1.05vw,15px);line-height:1.5;letter-spacing:.38em;margin:0 0 30px;padding-left:.38em}
+/* Typografie opony zůstává přesně podle odladěné předlohy: systémové písmo,
+   takže nápis nikam neposkočí, až se načte webový font. */
+.bb-curtain__eyebrow{color:var(--bb-gold);font-size:12px;line-height:1.5;letter-spacing:.38em;margin:0 0 30px;padding-left:.38em}
 .bb-curtain__title{
-  font-family:var(--display);
-  font-size:clamp(46px,7.6vw,110px);line-height:.98;font-weight:400;
+  font-family:'Baskerville','Times New Roman',Georgia,serif;
+  font-size:clamp(49px,8.4vw,120px);line-height:.98;font-weight:400;
   letter-spacing:.045em;margin:0;padding-left:.045em;white-space:nowrap;
 }
 .bb-curtain__city{font-size:clamp(11px,1.28vw,18px);line-height:1.6;font-weight:400;letter-spacing:.47em;padding-left:.47em;margin:25px 0 0;color:#e1cbb0}
@@ -1132,19 +1131,42 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   position:absolute;bottom:max(22px,env(safe-area-inset-bottom));right:clamp(16px,3vw,52px);
   color:#ead8c4;background:#160a0b30;border:1px solid #e0bea32e;
   border-radius:999px;padding:12px 20px;min-height:44px;cursor:pointer;
-  font:400 11px/1.4 var(--body);letter-spacing:.13em;
+  font:400 10px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.13em;
   transition:background .2s,border-color .2s;
 }
 .bb-curtain__skip:hover{background:#e4cdae16;border-color:#e0bea380}
 .bb-curtain__skip:focus-visible{outline:2px solid #ecd4a7;outline-offset:4px}
 @media (max-width:600px){
   .bb-curtain__identity{padding:20px}
-  .bb-curtain__title{font-size:clamp(36px,11.2vw,66px)}
+  .bb-curtain__title{font-size:clamp(38px,11.9vw,70px)}
   .bb-curtain__city{font-size:10px;letter-spacing:.34em;margin-top:20px}
   .bb-curtain__eyebrow{margin-bottom:25px;font-size:11px}
   .bb-curtain__skip{right:50%;transform:translateX(50%);white-space:nowrap}
 }
 @media (prefers-reduced-motion:reduce){.bb-curtain__skip{transition:none}}
+</style>
+<style id="refined-equalizer">
+/* A restrained circular spectrum; only the trumpet seal is affected. */
+.hero-seal .hero-eq{inset:-12%;z-index:1;pointer-events:none;contain:layout paint}
+.hero-eq__canvas{display:block;width:100%;height:100%;max-width:none}
+.hero-seal--spectrum .hero-seal__ring{display:none}
+.hero-seal .hero-seal__axis{opacity:.4}
+.hero-seal .hero-seal__star{animation:none;opacity:.8;transform:none;z-index:3}
+.hero-seal .hero-seal__core{z-index:2}
+.hero-eq-toggle{
+ position:absolute;z-index:4;right:1px;bottom:1px;width:44px;height:44px;
+ display:grid;place-items:center;border:0;border-radius:50%;background:transparent;
+ color:var(--gold);opacity:.72;transition:color .2s,opacity .2s,background .2s;
+}
+.hero-eq-toggle::before{content:'';position:absolute;inset:7px;border:1px solid var(--line);border-radius:50%}
+.hero-eq-toggle:hover,.hero-eq-toggle:focus-visible{opacity:1;color:var(--wine);background:#92734b0c}
+.hero-eq-toggle svg{width:13px;height:13px;fill:currentColor}
+.hero-eq-toggle .eq-play{display:none}
+.hero-eq-toggle[aria-pressed=true] .eq-play{display:block}
+.hero-eq-toggle[aria-pressed=true] .eq-pause{display:none}
+@media(prefers-reduced-motion:reduce){.hero-eq-toggle{display:none}.hero-seal .hero-seal__star{animation:none}}
+@media print{.hero-eq-toggle{display:none}}
+
 </style>
 </head>
 <body>
@@ -1388,8 +1410,10 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 
 <!-- ============================================================
      KONCERTY
-     Obsah mezi značkami AUTO generuje build/generate.mjs
-     z data/koncerty.json. Needituj ho ručně.
+     Karty koncertů jsou napsané přímo tady. Nový termín = zkopíruj jednu
+     kartu .gig a přepiš datum, název a místo. Odehraný koncert dostane
+     třídu .gig--past. Nezapomeň na stejný termín i ve strukturovaných
+     datech na konci souboru.
      ============================================================ -->
 <section class="section" id="koncerty">
   <div class="container">
@@ -1401,7 +1425,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     </div>
 
     <div class="gigs reveal">
-<!-- AUTO:KONCERTY -->
+<!-- Termíny koncertů — edituj přímo tady -->
       <div class="gig-rail" id="gigRail" role="group" aria-label="Termíny koncertů" data-start="2">
         <article class="gig gig--past" data-i="0" data-past="1">
           <span class="gig__day">06</span>
@@ -1452,7 +1476,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
         </div>
         <button type="button" class="rail-arrow" id="gigNext" aria-label="Další termín"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg></button>
       </div>
-<!-- /AUTO:KONCERTY -->
+<!-- /Termíny koncertů -->
     </div>
   </div>
 </section>
@@ -1478,11 +1502,6 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 
         <p class="lead">Sólisty orchestru jsou zpěvák <b>David Kleňha</b> a&nbsp;zpěvačka <b>Mirka Lendělová</b>. Ctižádostí kapely je hrát pro všechny generace a&nbsp;podporovat české muzikantství.</p>
 
-        <div class="stats">
-          <div><b class="count" data-to="20" data-suffix="+">0</b><span>hudebníků<br>v orchestru</span></div>
-          <div><b class="count" data-to="40" data-suffix="+">0</b><span>let<br>na scéně</span></div>
-          <div><b class="count" data-to="50" data-suffix="+">0</b><span>skladeb<br>v repertoáru</span></div>
-        </div>
       </div>
 
       <div class="about__col about-photo reveal">
@@ -1501,6 +1520,12 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <figcaption class="arch-photo__cap">Big Band Karlovy Vary &middot; 1986</figcaption>
         </figure>
       </div>
+    </div>
+
+    <div class="stats reveal">
+      <div><b class="count" data-to="20" data-suffix="+">0</b><span>hudebníků v orchestru</span></div>
+      <div><b class="count" data-to="40" data-suffix="+">0</b><span>let na scéně</span></div>
+      <div><b class="count" data-to="50" data-suffix="+">0</b><span>skladeb v repertoáru</span></div>
     </div>
   </div>
 </section>
@@ -1547,7 +1572,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
         </span>
-        <span class="yt__meta"><span class="yt__num">V</span><span class="yt__title">Skladba 5</span></span>
+        <span class="yt__meta"><span class="yt__num">V</span><span class="yt__title">It Don’t Mean a Thing (If It Ain’t Got That Swing)<span class="yt__author">Duke Ellington</span></span></span>
       </button>
       <button class="yt" type="button" data-yt="E-YqAIQaOVY" aria-label="Přehrát 1. záznam Big Bandu Karlovy Vary">
         <span class="yt__frame">
@@ -1557,7 +1582,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
         </span>
-        <span class="yt__meta"><span class="yt__num">I</span><span class="yt__title">Skladba 1</span></span>
+        <span class="yt__meta"><span class="yt__num">I</span><span class="yt__title">In the Mood<span class="yt__author">Glenn Miller</span></span></span>
       </button>
       <button class="yt" type="button" data-yt="8EkUIP8M2UA" aria-label="Přehrát 2. záznam Big Bandu Karlovy Vary">
         <span class="yt__frame">
@@ -1567,7 +1592,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
         </span>
-        <span class="yt__meta"><span class="yt__num">II</span><span class="yt__title">Skladba 2</span></span>
+        <span class="yt__meta"><span class="yt__num">II</span><span class="yt__title">L-O-V-E<span class="yt__author">Bert Kaempfert</span></span></span>
       </button>
       <button class="yt" type="button" data-yt="Qy5uX-y7d0c" aria-label="Přehrát 3. záznam Big Bandu Karlovy Vary">
         <span class="yt__frame">
@@ -1577,7 +1602,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
         </span>
-        <span class="yt__meta"><span class="yt__num">III</span><span class="yt__title">Skladba 3</span></span>
+        <span class="yt__meta"><span class="yt__num">III</span><span class="yt__title">Somethin’ Stupid<span class="yt__author">C. Carson Parks</span></span></span>
       </button>
       <button class="yt" type="button" data-yt="SwFmJBtF_iU" aria-label="Přehrát 4. záznam Big Bandu Karlovy Vary">
         <span class="yt__frame">
@@ -1587,7 +1612,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
         </span>
-        <span class="yt__meta"><span class="yt__num">IV</span><span class="yt__title">Skladba 4</span></span>
+        <span class="yt__meta"><span class="yt__num">IV</span><span class="yt__title">That’s All<span class="yt__author">Bob Haymes / Alan Brandt</span></span></span>
       </button>
     </div>
     <div class="rail-nav">
@@ -1606,8 +1631,8 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 
 <!-- ============================================================
      OBSAZENÍ
-     Obsah mezi značkami AUTO generuje build/generate.mjs
-     z data/hudebnici.json. Needituj ho ručně.
+     Obsazení je napsané přímo tady. Nový hudebník = zkopíruj jednu
+     .member a přepiš jméno, nástroj a cestu k fotce v /hudebnici/.
      ============================================================ -->
 <section class="section" id="obsazeni">
   <div class="container">
@@ -1618,24 +1643,9 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
       </div>
     </div>
 
-<!-- AUTO:OBSAZENI -->
+<!-- Obsazení orchestru — edituj přímo tady -->
       <div class="member-row reveal-stagger" data-section="vedeni">
-        <h3 class="member-row__title">Vedení orchestru</h3>
-        <div class="member-row__grid">
-          <figure class="member">
-            <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">ZK</span>
-              <img src="/hudebnici/zdenek-kram.png" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Krám — kapelník · pozoun, Big Band Karlovy Vary" onerror="this.remove()">
-            </div>
-            <figcaption>
-              <span class="member__name">Zdeněk Krám</span>
-              <span class="member__role">kapelník · pozoun</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="member-row reveal-stagger" data-section="zpev">
-        <h3 class="member-row__title">Zpěv</h3>
+        <h3 class="member-row__title">Vedení orchestru a sólisté</h3>
         <div class="member-row__grid">
           <figure class="member">
             <div class="member__tile">
@@ -1645,6 +1655,16 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
             <figcaption>
               <span class="member__name">Mirka Lendělová</span>
               <span class="member__role">zpěv</span>
+            </figcaption>
+          </figure>
+          <figure class="member">
+            <div class="member__tile">
+              <span class="member__mono" aria-hidden="true">ZK</span>
+              <img src="/hudebnici/zdenek-kram.png" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Krám — kapelník · pozoun, Big Band Karlovy Vary" onerror="this.remove()">
+            </div>
+            <figcaption>
+              <span class="member__name">Zdeněk Krám</span>
+              <span class="member__role">kapelník · pozoun</span>
             </figcaption>
           </figure>
           <figure class="member">
@@ -1839,29 +1859,13 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           </figure>
         </div>
       </div>
-      <div class="member-row reveal-stagger" data-section="hoste">
-        <h3 class="member-row__title">Hosté</h3>
-        <div class="member-row__grid">
-          <figure class="member">
-            <div class="member__tile">
-              <span class="member__mono" aria-hidden="true">JV</span>
-              <img src="/hudebnici/jan-vacula.png" width="330" height="440" loading="lazy" decoding="async" alt="Jan Vacula — pozoun, Big Band Karlovy Vary" onerror="this.remove()">
-            </div>
-            <figcaption>
-              <span class="member__name">Jan Vacula</span>
-              <span class="member__role">pozoun</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-<!-- /AUTO:OBSAZENI -->
+<!-- /Obsazení orchestru -->
   </div>
 </section>
 
 <!-- ============================================================
      REPERTOÁR
-     Seznam skladeb mezi značkami AUTO generuje build/generate.mjs
-     z data/repertoar.json. Needituj ho ručně.
+     Seznam skladeb je napsaný přímo tady — stačí přidat další <li class="song">.
      ============================================================ -->
 <section class="section section--dk2" id="repertoar">
   <div class="container">
@@ -1893,7 +1897,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     <div class="rep-player reveal">
       <button type="button" class="rail-arrow" id="repPrev" aria-label="Předchozí skladby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8"/></svg></button>
       <div class="songs-viewport" id="songsViewport">
-<!-- AUTO:REPERTOAR -->
+<!-- Seznam skladeb — edituj přímo tady -->
         <ul class="songs is-collapsed" id="songList">
           <li class="song"><span class="song__t">All Of Me</span><span class="song__a">Gerald Marks / Seymour Simons</span></li>
           <li class="song"><span class="song__t">All The Things You Are</span><span class="song__a">Jerome Kern</span></li>
@@ -1949,7 +1953,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
             <span>Zobrazit celý repertoár (48 skladeb)</span>
           </button>
         </div>
-<!-- /AUTO:REPERTOAR -->
+<!-- /Seznam skladeb -->
       </div>
       <button type="button" class="rail-arrow" id="repNext" aria-label="Další skladby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg></button>
     </div>
@@ -1970,22 +1974,14 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     <div class="reveal">
       <div class="faq is-collapsed" id="faqList">
         <details name="faq">
-          <summary>Kolik hudebníků má Big Band Karlovy Vary?</summary>
-          <div class="faq-a"><div><p>Orchestr má dvacet hudebníků — trubky, pozouny, saxofony a rytmiku — a k tomu dva sólisty: zpěváka Davida Kleňhu a zpěvačku Mirku Lendělovou.</p></div></div>
-        </details>
-        <details name="faq">
-          <summary>Odkdy orchestr existuje a kdo ho založil?</summary>
-          <div class="faq-a"><div><p>Big Band Karlovy Vary vznikl v roce 1986. Založil ho pozounista Milan Hart, vyznavač swingové taneční hudby, který kolem sebe soustředil renomované hudebníky karlovarského regionu.</p></div></div>
-        </details>
-        <details name="faq">
           <summary>Je možné orchestr pozvat na vlastní akci?</summary>
           <div class="faq-a"><div><p>Ano. Big Band Karlovy Vary hraje na plesech, městských slavnostech, firemních večerech a adventních koncertech. Termín a podmínky domluvíte s kapelníkem Zdeňkem Krámem na telefonu +420 607 947 301 nebo e-mailem.</p></div></div>
         </details>
-        <details class="faq--more" name="faq">
-          <summary>Kdo orchestr vede dnes?</summary>
-          <div class="faq-a"><div><p>Od roku 1998 vede Big Band Karlovy Vary Zdeněk Krám. Navázal spolu s hudebníky na myšlenky zakladatele — šířit swingovou a jazzovou hudbu pro všechny generace.</p></div></div>
+        <details name="faq">
+          <summary>Kolik stojí vystoupení big bandu?</summary>
+          <div class="faq-a"><div><p>Cena závisí na délce programu, místě konání, technickém zázemí a termínu. Konkrétní nabídku pošleme na vyžádání — napište nebo zavolejte kapelníkovi.</p></div></div>
         </details>
-        <details class="faq--more" name="faq">
+        <details name="faq">
           <summary>Jaký hraje orchestr repertoár?</summary>
           <div class="faq-a"><div><p>Pilířem repertoáru jsou skladby klasiků jazzové hudby — Duke Ellington, Count Basie, Benny Goodman a Frank Sinatra. Kromě swingu má orchestr v repertoáru také latinské a popové skladby.</p></div></div>
         </details>
@@ -1998,8 +1994,12 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <div class="faq-a"><div><p>Ano. Orchestr vystupoval v příhraničním Bavorsku, například v Luhe-Wildenau. Vzdálenost od Karlových Varů k německé hranici je zhruba čtyřicet kilometrů.</p></div></div>
         </details>
         <details class="faq--more" name="faq">
-          <summary>Kolik stojí vystoupení big bandu?</summary>
-          <div class="faq-a"><div><p>Cena závisí na délce programu, místě konání, technickém zázemí a termínu. Konkrétní nabídku pošleme na vyžádání — napište nebo zavolejte kapelníkovi.</p></div></div>
+          <summary>Kolik hudebníků má Big Band Karlovy Vary?</summary>
+          <div class="faq-a"><div><p>Orchestr má dvacet hudebníků — trubky, pozouny, saxofony a rytmiku — a k tomu dva sólisty: zpěváka Davida Kleňhu a zpěvačku Mirku Lendělovou.</p></div></div>
+        </details>
+        <details class="faq--more" name="faq">
+          <summary>Kdo orchestr vede dnes?</summary>
+          <div class="faq-a"><div><p>Od roku 1998 vede Big Band Karlovy Vary Zdeněk Krám. Navázal spolu s hudebníky na myšlenky zakladatele — šířit swingovou a jazzovou hudbu pro všechny generace.</p></div></div>
         </details>
       </div>
 
@@ -2016,6 +2016,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
      ZAHRAJEME U VÁS — jen text, bez dlaždic
      ============================================================ -->
 <section class="section section--wine booking" id="poptavka">
+  <span class="booking-mark" aria-hidden="true"><svg><use href="#bb-trumpet"/></svg></span>
   <div class="container booking-inner reveal">
     <span class="eyebrow">08 / Vystoupení</span>
     <h2>Zahrajeme u vás</h2>
@@ -2849,48 +2850,164 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     }, {passive:true});
   });
 
-  /* ---------- 9b. kruhový ekvalizér za pečetí ---------- */
+  /* ---------- 9b. circular spectrum — swing phrasing, soft attack and decay ---------- */
   safe(function(){
-    var host = $('#heroEq');
-    if(!host) return;
-    var N = 150, R = 31, bars = [], i;
-    for(i = 0; i < N; i++){
-      var bar = d.createElement('div');
-      bar.className = 'bar';
-      bar.style.height = R + '%';
-      bar.style.transform = 'rotate(' + (i * 360 / N) + 'deg)';
-      var seg = d.createElement('i');
-      bar.appendChild(seg); host.appendChild(bar); bars.push(seg);
+    var host = $('#heroEq'), seal = host && host.closest('.hero-seal');
+    if(!host || !seal) return;
+    var canvas=d.createElement('canvas'), ctx=canvas.getContext('2d');
+    if(!ctx) return; // The original fine rings remain as a no-canvas fallback.
+    seal.classList.add('hero-seal--spectrum');
+    canvas.className='hero-eq__canvas';canvas.setAttribute('aria-hidden','true');
+    host.replaceChildren(canvas);host.setAttribute('aria-hidden','true');
+    seal.removeAttribute('aria-hidden');
+    Array.from(seal.children).forEach(function(el){el.setAttribute('aria-hidden','true');});
+    var control=d.createElement('button');control.type='button';control.className='hero-eq-toggle';
+    control.setAttribute('aria-label','Pozastavit animaci ekvalizéru');control.setAttribute('aria-pressed','false');
+    control.title='Pozastavit animaci';
+    control.innerHTML='<svg class="eq-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h2.5v10H4zm5.5 0H12v10H9.5z"/></svg><svg class="eq-play" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 2 9 6-9 6z"/></svg>';
+    seal.appendChild(control);
+
+    var media=W.matchMedia('(prefers-reduced-motion: reduce)');
+    var count=160, TAU=Math.PI*2, levels=new Float32Array(count), peaks=new Float32Array(count);
+    var frame=0, last=0, time=0, size=0, unit=0, center=0, dpr=1;
+    var paused=false, visible=true, destroyed=false, hover=0, hoverTarget=0;
+    var curtain=d.querySelector('.bb-curtain');
+    var cos=new Float32Array(count), sin=new Float32Array(count), jitter=new Float32Array(count);
+    function fract(n){return n-Math.floor(n);}
+    function hash(n){return fract(Math.sin(n*127.1+311.7)*43758.5453);}
+    for(var i=0;i<count;i++){
+      var a=i/count*TAU-Math.PI/2;
+      cos[i]=Math.cos(a);sin[i]=Math.sin(a);jitter[i]=.72+hash(i+3)*.48;
     }
-    function vlna(a, t){
-      return 0.5 + 0.5 * (0.55 * Math.sin(a * 2 - t) + 0.30 * Math.sin(a * 3 - t * 0.7) + 0.15 * Math.sin(a * 5 - t * 1.3));
+    function ringDistance(a,b){var n=Math.abs(a-b)%1;return Math.min(n,1-n);}
+    function bell(x,width){return Math.exp(-x*x/(2*width*width));}
+    function envelope(age,decay){return age<0?0:(1-Math.exp(-age*34))*Math.exp(-age*decay);}
+
+    // Decorative motion, not microphone or audio analysis. A swung offbeat, small
+    // phrases and independent releases avoid a mechanically rotating sine wave.
+    function notes(t){
+      var period=60/86, beat=Math.floor(t/period), events=[];
+      for(var k=0;k<4;k++){
+        var b=beat-k, phrase=Math.floor(b/8), age=t-b*period;
+        var phraseGain=.56+.25*hash(phrase+70);
+        events.push({at:hash(b+11),width:.016+hash(b+41)*.022,
+          value:envelope(age,3.8)*phraseGain*(b%4===0?1.12:.86)});
+        events.push({at:fract(hash(b+11)+.43),width:.02+hash(b+53)*.016,
+          value:envelope(age-.08,4.7)*phraseGain*.65});
+        events.push({at:hash(b+101),width:.012+hash(b+71)*.016,
+          value:envelope(age-period*2/3,5.6)*phraseGain*.66});
+      }
+      return events;
     }
-    var zaklad = 14, rozkmit = 120;
-    function prekresli(t){
-      for(var k = 0; k < N; k++){
-        var a = (k / N) * Math.PI * 2;
-        bars[k].style.height = (zaklad + rozkmit * vlna(a, t)) + '%';
+
+    function paint(t,dt,still){
+      if(!size || destroyed) return;
+      ctx.clearRect(0,0,size,size);
+      var base=unit*.405, maximum=unit*.17, c=center;
+      var events=notes(still?3.42:t+3.42);
+      hover+=(hoverTarget-hover)*(1-Math.exp(-Math.max(dt,.016)*3.5));
+      var glow=ctx.createRadialGradient(c,c,unit*.35,c,c,unit*.495);
+      glow.addColorStop(0,'rgba(146,115,75,0)');glow.addColorStop(.47,'rgba(146,115,75,.042)');glow.addColorStop(1,'rgba(146,115,75,0)');
+      ctx.fillStyle=glow;ctx.beginPath();ctx.arc(c,c,unit*.495,0,TAU);ctx.fill();
+
+      // Fine gold score marks inside the spectrum. Everything stays centred.
+      ctx.strokeStyle='rgba(146,115,75,.22)';ctx.lineWidth=.7;
+      ctx.beginPath();ctx.arc(c,c,unit*.376,0,TAU);ctx.stroke();
+      ctx.fillStyle='rgba(146,115,75,.47)';
+      for(var n=0;n<80;n++){
+        var angle=n/80*TAU-Math.PI/2,r=unit*.387;
+        ctx.beginPath();ctx.arc(c+Math.cos(angle)*r,c+Math.sin(angle)*r,n%5===0?.85:.55,0,TAU);ctx.fill();
+      }
+      ctx.strokeStyle='rgba(146,115,75,.15)';ctx.lineWidth=.6;
+      ctx.beginPath();ctx.arc(c,c,unit*.483,0,TAU);ctx.stroke();
+
+      ctx.lineCap='round';
+      for(var i=0;i<count;i++){
+        var x=i/count,a=x*TAU;
+        var target=.025+.013*(1+Math.sin(a*5+t*.44))+.012*(1+Math.sin(a*11-t*.31));
+        for(var e=0;e<events.length;e++)target+=events[e].value*bell(ringDistance(x,events[e].at),events[e].width);
+        target=Math.min(.88,target*jitter[i]*1.5);
+        if(still)target*=.62;
+        var speed=target>levels[i]?19:5.5;
+        levels[i]=still?target:levels[i]+(target-levels[i])*(1-Math.exp(-dt*speed));
+        var v=levels[i];
+        peaks[i]=still?v:Math.max(v,peaks[i]-dt*.34);
+        // Leave a tiny quiet interval below the existing star ornament.
+        var starGap=Math.min(1,ringDistance(x,0)/.022);
+        var length=(unit*.0055+maximum*v*(1+hover*.13))*starGap;
+        var r0=base,r1=base+length;
+        ctx.lineWidth=Math.max(.85,unit*.0035);
+        ctx.strokeStyle='rgba(155,38,54,'+(.39+v*.46).toFixed(3)+')';
+        ctx.beginPath();ctx.moveTo(c+cos[i]*r0,c+sin[i]*r0);ctx.lineTo(c+cos[i]*r1,c+sin[i]*r1);ctx.stroke();
+        // A small gold peak marker lingers briefly after stronger notes.
+        if(peaks[i]>.36 && i%2===0 && starGap>.9){
+          var peakR=base+unit*.0055+maximum*peaks[i]*(1+hover*.13)+unit*.009;
+          ctx.fillStyle='rgba(146,115,75,'+Math.min(.56,(peaks[i]-.3)*1.4).toFixed(3)+')';
+          ctx.beginPath();ctx.arc(c+cos[i]*peakR,c+sin[i]*peakR,Math.max(.55,unit*.0015),0,TAU);ctx.fill();
+        }
       }
     }
-    prekresli(0);
-    if(reduce) return;
-    var t = 0, bezi = true;
-    function smycka(){
-      if(!bezi) return;
-      t += 0.009; prekresli(t);
-      W.requestAnimationFrame(smycka);
+    function state(){
+      if(destroyed)return 'destroyed';
+      if(media.matches)return 'reduced';
+      if(paused)return 'paused';
+      if(d.hidden)return 'hidden';
+      if(!visible)return 'offscreen';
+      if(curtain&&!curtain.hidden)return 'curtain';
+      return 'running';
     }
-    /* běží jen když je pečeť na obrazovce */
+    function loop(now){
+      frame=0;
+      if(state()!=='running'){sync();return;}
+      var interval=unit<340?1000/30:1000/60;
+      if(!last)last=now-interval;
+      if(now-last>=interval-.6){
+        var dt=Math.min(.05,(now-last)/1000);last=now;time+=dt;paint(time,dt,false);
+      }
+      frame=W.requestAnimationFrame(loop);
+    }
+    function sync(){
+      var s=state();host.dataset.state=s;control.hidden=media.matches;
+      if(s==='running'){
+        if(!frame){last=0;frame=W.requestAnimationFrame(loop);}
+      }else{
+        if(frame)W.cancelAnimationFrame(frame);frame=0;last=0;
+        if(s==='reduced')paint(0,0,true);
+      }
+    }
+    function resize(){
+      var rect=host.getBoundingClientRect();size=Math.max(1,rect.width);unit=size/1.24;center=size/2;
+      dpr=Math.min(W.devicePixelRatio||1,2);
+      canvas.width=Math.round(size*dpr);canvas.height=Math.round(size*dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);paint(time,.016,media.matches);sync();
+    }
+    function setPaused(value){
+      paused=value;control.setAttribute('aria-pressed',String(paused));
+      control.setAttribute('aria-label',paused?'Spustit animaci ekvalizéru':'Pozastavit animaci ekvalizéru');
+      control.title=paused?'Spustit animaci':'Pozastavit animaci';sync();
+    }
+    control.addEventListener('click',function(){setPaused(!paused);});
+    function enter(){hoverTarget=1;}function leave(){hoverTarget=0;}
+    if(W.matchMedia('(hover:hover) and (pointer:fine)').matches){seal.addEventListener('pointerenter',enter);seal.addEventListener('pointerleave',leave);}
+    var visibilityObserver=null,resizeObserver=null,curtainObserver=null;
     if('IntersectionObserver' in W){
-      new IntersectionObserver(function(en){
-        en.forEach(function(e){
-          bezi = e.isIntersecting;
-          if(bezi) W.requestAnimationFrame(smycka);
-        });
-      }, {threshold:0}).observe(host);
-    } else {
-      W.requestAnimationFrame(smycka);
+      visibilityObserver=new IntersectionObserver(function(entries){visible=entries[0].isIntersecting;sync();},{threshold:.05});visibilityObserver.observe(seal);
     }
+    if('ResizeObserver' in W){resizeObserver=new ResizeObserver(resize);resizeObserver.observe(host);}
+    W.addEventListener('resize',resize,{passive:true});
+    d.addEventListener('visibilitychange',sync);media.addEventListener('change',sync);
+    if(curtain){curtainObserver=new MutationObserver(sync);curtainObserver.observe(curtain,{attributes:true,attributeFilter:['hidden']});}
+    resize();
+    W.bbHeroEqualizer={
+      pause:function(){setPaused(true);},resume:function(){setPaused(false);},
+      get state(){return state();},
+      destroy:function(){
+        destroyed=true;sync();
+        if(visibilityObserver)visibilityObserver.disconnect();if(resizeObserver)resizeObserver.disconnect();if(curtainObserver)curtainObserver.disconnect();
+        W.removeEventListener('resize',resize);d.removeEventListener('visibilitychange',sync);media.removeEventListener('change',sync);
+        seal.removeEventListener('pointerenter',enter);seal.removeEventListener('pointerleave',leave);control.remove();
+      }
+    };
   });
 
   /* ---------- 9c. střídající se slogany ---------- */
@@ -3093,7 +3210,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 })();
 </script>
 
-<!-- AUTO:JSONLD -->
+<!-- Strukturovaná data pro vyhledávače — edituj přímo tady -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -3504,6 +3621,6 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   ]
 }
 </script>
-<!-- /AUTO:JSONLD -->
+<!-- /Strukturovaná data pro vyhledávače -->
 </body>
 </html>
