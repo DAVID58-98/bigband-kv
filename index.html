@@ -311,17 +311,21 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .hero-seal__star{font-size:1.4375rem;line-height:1;position:absolute;z-index:3;top:calc(5% - 11px);left:calc(50% - 12px);padding:0 4px;background:var(--paper);color:var(--gold)}
 
 /* střídající se slogany v úvodu */
-.hero-slogans{display:grid;overflow:hidden}
+.hero-slogans{display:grid;overflow:hidden;padding:.16em .06em .1em;margin:-.16em -.06em -.1em}
 .hero-slogans .slogan{grid-area:1/1;opacity:1;transform:translateY(0);
   transition:opacity .55s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
-.hero-slogans .slogan.out{opacity:0;transform:translateY(40px);pointer-events:none}
-.hero-slogans .slogan.in-wait{opacity:0;transform:translateY(-40px);pointer-events:none}
+.hero-slogans .slogan.out{opacity:0;transform:translateY(34px);pointer-events:none}
+.hero-slogans .slogan.in-wait{opacity:0;transform:translateY(-34px);pointer-events:none}
 
 /* ============================================================
    GALERIE — běžící pás fotografií
    ============================================================ */
 .gallery{border-top:1px solid var(--line)}
-.strip{overflow:hidden;width:100%}
+.strip{overflow:hidden;width:100%;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+}
+.strip figure{cursor:zoom-in}
 .strip__track{display:flex;gap:28px;width:max-content;animation:slide 150s linear infinite}
 .strip:hover .strip__track,.strip:focus-within .strip__track{animation-play-state:paused}
 .strip figure{width:340px;flex:0 0 auto;text-align:left}
@@ -331,6 +335,35 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .strip figcaption{display:block;margin-top:12px;font:400 1rem/1.3 var(--display);color:var(--wine)}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .strip-foot{margin-top:40px;font-size:.9375rem;color:var(--muted)}
+
+/* prohlížeč fotek */
+.lbox{
+  position:fixed;inset:0;z-index:9500;display:none;
+  align-items:center;justify-content:center;padding:clamp(16px,4vw,56px);
+  background:#180a0fdd;backdrop-filter:blur(6px);
+}
+.lbox.is-on{display:flex}
+.lbox__img{max-width:100%;max-height:82vh;border-radius:16px;box-shadow:0 30px 80px -30px #000;background:var(--paper-dk)}
+.lbox__cap{
+  position:absolute;left:0;right:0;bottom:clamp(14px,3vw,34px);text-align:center;
+  font-size:.875rem;letter-spacing:.06em;color:var(--on-wine);padding-inline:80px;
+}
+.lbox__btn{
+  position:absolute;width:52px;height:52px;border-radius:50%;
+  display:grid;place-items:center;color:var(--paper-light);
+  border:1px solid #e6ceb64a;background:#1c0b1044;transition:background .2s,transform .2s;
+}
+.lbox__btn:hover{background:#f0ecdf1f;transform:scale(1.06)}
+.lbox__btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.lbox__prev{left:clamp(10px,2.5vw,34px);top:50%;margin-top:-26px}
+.lbox__next{right:clamp(10px,2.5vw,34px);top:50%;margin-top:-26px}
+.lbox__close{top:clamp(10px,2.5vw,26px);right:clamp(10px,2.5vw,26px)}
+@media (max-width:700px){
+  .lbox__img{max-height:70vh}
+  .lbox__cap{padding-inline:20px;bottom:86px;font-size:.8125rem}
+  .lbox__prev{left:auto;right:calc(50% + 12px);top:auto;bottom:16px;margin-top:0}
+  .lbox__next{right:calc(50% - 64px);top:auto;bottom:16px;margin-top:0}
+}
 
 /* ============================================================
    KONCERTY — slider s historií (karty ve stylu původního sliderů)
@@ -408,18 +441,18 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .about .lead{font-size:.9375rem}
 .about .lead + .lead{margin-top:14px}
 .about .lead b{color:var(--ink)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line);margin-top:34px;padding-block:22px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line);margin-top:26px;padding-block:14px}
 .stats > div{padding-inline:32px;border-left:1px solid var(--line);min-width:0}
 .stats > div:first-child{border:0;padding-left:0}
-.stats b{display:block;font:400 2.2rem/1.1 var(--display);color:var(--wine);font-variant-numeric:tabular-nums}
-.stats span{display:block;font-size:.8125rem;color:var(--muted);margin-top:6px;line-height:1.45}
+.stats b{display:block;font:400 1.75rem/1.1 var(--display);color:var(--wine);font-variant-numeric:tabular-nums}
+.stats span{display:block;font-size:.75rem;color:var(--muted);margin-top:3px;line-height:1.4}
 
 .about-photo{position:relative}
 .arch-photo{
-  position:relative;overflow:hidden;width:100%;max-width:440px;margin-inline:auto;aspect-ratio:.8;
-  background:var(--paper-dk);border-radius:220px 220px 22px 22px;
+  position:relative;overflow:hidden;width:100%;max-width:560px;margin-inline:auto;aspect-ratio:1.35;
+  background:var(--paper-dk);border-radius:170px 170px 22px 22px;
 }
-.arch-photo img{width:100%;height:100%;object-fit:cover;object-position:53% center;filter:saturate(.67);position:relative;z-index:1}
+.arch-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:saturate(.67);position:relative;z-index:1}
 /* Placeholder je vidět jen dokud fotka chybí — po načtení obrázku
    JS odebere třídu .is-empty a rám se přepne na čistý. */
 .arch-photo.is-empty{
@@ -453,8 +486,8 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
    ============================================================ */
 .theatre{padding:0;background:var(--paper)}
 .theatre-scene{
-  position:relative;width:100%;max-width:1672px;margin-inline:auto;
-  aspect-ratio:1672/941;isolation:isolate;overflow:hidden;background:var(--paper);
+  position:relative;width:100%;max-width:1600px;margin-inline:auto;
+  aspect-ratio:1600/900;isolation:isolate;overflow:hidden;background:var(--paper);
 }
 /* horní i spodní okraj se plynule rozplyne do papíru — žádný rovný řez */
 .theatre-scene > picture,.theatre-scene > picture img{position:absolute;inset:0;width:100%;height:100%}
@@ -543,21 +576,29 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .member{width:160px;text-align:center}
 .member__tile{
   position:relative;aspect-ratio:3/4;overflow:hidden;
-  border:1px solid #92734b4d;border-radius:120px 120px 18px 18px;
+  border:1px solid #9b26363d;border-radius:120px 120px 18px 18px;
   background:
-    radial-gradient(90% 60% at 50% 100%,#9b263614,transparent 70%),
-    linear-gradient(178deg,#fbf8f0 0%,var(--paper-light) 45%,#e6ddca 100%);
-  box-shadow:inset 0 1px 0 #ffffffb3,0 14px 30px -20px #35171f66;
+    radial-gradient(85% 55% at 50% 100%,#9b26361f,transparent 72%),
+    linear-gradient(178deg,#fbf8f0 0%,#f5ece1 52%,#e9d8cd 100%);
+  box-shadow:inset 0 1px 0 #ffffffcc,0 14px 30px -20px #4c182866;
   transition:border-color .3s,transform .35s cubic-bezier(.22,.8,.3,1),box-shadow .35s;
 }
-.member__tile::after{
-  content:"";position:absolute;left:8%;right:8%;top:6%;bottom:8%;pointer-events:none;
-  border:1px solid #92734b33;border-radius:110px 110px 12px 12px;
+/* vínový oblouk za hudebníkem + tenká zlatá linka */
+.member__tile::before{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:46%;z-index:0;
+  background:linear-gradient(180deg,#4c182800,#4c182814 45%,#4c182826);
 }
-.member:hover .member__tile{border-color:var(--red);transform:translateY(-6px);box-shadow:inset 0 1px 0 #ffffffb3,0 22px 40px -20px #9b263680}
+.member__tile::after{
+  content:"";position:absolute;left:7%;right:7%;top:5%;bottom:7%;z-index:2;pointer-events:none;
+  border:1px solid #9b26362e;border-radius:110px 110px 12px 12px;
+}
+.member:hover .member__tile{
+  border-color:var(--red);transform:translateY(-6px);
+  box-shadow:inset 0 1px 0 #ffffffcc,0 22px 42px -20px #9b263699;
+}
 .member__mono{
-  position:absolute;left:0;right:0;top:46%;transform:translateY(-50%);
-  font:400 2rem/1 var(--display);letter-spacing:.1em;color:#92734b2e;z-index:0;
+  position:absolute;left:0;right:0;top:44%;transform:translateY(-50%);
+  font:400 2rem/1 var(--display);letter-spacing:.1em;color:#9b26362e;z-index:0;
 }
 .member__tile img{
   position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:contain;object-position:bottom center;padding-top:8px;
@@ -585,27 +626,29 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .rep-player .rail-arrow{border-color:#e6ceb64a;color:var(--paper)}
 .rep-player .rail-arrow:hover:not([disabled]){background:var(--paper);color:var(--wine)}
 .songs-viewport{
-  position:relative;flex:1;min-width:0;height:250px;overflow:hidden;
-  -webkit-mask:linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent);
-          mask:linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent);
+  position:relative;flex:1;min-width:0;overflow:hidden;
+  -webkit-mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+          mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
 }
-/* .songs a .song generuje build/generate.mjs — třídy musí zůstat */
+/* .songs a .song generuje build/generate.mjs — třídy musí zůstat.
+   Dlaždice tečou ve třech řadách a každá je jen tak široká, jak potřebuje. */
 .songs{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;align-content:start;align-items:start;
-  position:absolute;left:0;right:0;top:0;padding:0;margin:0;border:0;
+  display:grid;grid-auto-flow:column;grid-template-rows:repeat(3,auto);grid-auto-columns:max-content;
+  gap:10px;padding:0;margin:0;border:0;list-style:none;width:max-content;
   transition:transform .55s cubic-bezier(.2,.8,.2,1);
 }
-.songs.is-auto{animation:songScroll var(--dur,90s) linear infinite}
+.songs.is-auto{animation:songScroll var(--dur,120s) linear infinite}
 .songs-viewport:hover .songs.is-auto,.songs-viewport:focus-within .songs.is-auto{animation-play-state:paused}
-@keyframes songScroll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes songScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .song{
-  position:relative;display:flex;flex-direction:column;gap:2px;border:1px solid #e6ceb62e;border-radius:16px;
-  background:#f0ecdf0f;padding:10px 13px 10px 34px;transition:background .2s,transform .2s;
+  position:relative;display:flex;flex-direction:column;gap:1px;
+  border:1px solid #e6ceb62e;border-radius:16px;
+  background:#f0ecdf0f;padding:10px 14px 10px 32px;transition:background .2s,transform .2s;
 }
 .song:hover{background:#f0ecdf1a;transform:translateY(-3px)}
-.song::before{content:"♪";position:absolute;left:13px;top:10px;color:var(--on-wine-soft);font-size:13px}
-.song__t{font-size:.8125rem;font-weight:600;line-height:1.3;color:var(--paper-light)}
-.song__a{font-size:.6875rem;color:var(--on-wine)}
+.song::before{content:"♪";position:absolute;left:12px;top:10px;color:var(--on-wine-soft);font-size:13px}
+.song__t{font-size:.8125rem;font-weight:600;line-height:1.3;color:var(--paper-light);white-space:nowrap}
+.song__a{font-size:.6875rem;color:var(--on-wine);white-space:nowrap}
 .songs.is-collapsed .song{display:flex}
 .songs-foot{display:none}
 .rep-note{margin-top:16px;text-align:center;font-size:.8125rem;color:var(--muted)}
@@ -791,7 +834,6 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 }
 
 @media (max-width:1024px){
-  .songs-viewport{height:300px}
   .rep{grid-template-columns:1fr 1fr}
   .rep article:last-child{grid-column:1/-1}
   .member{width:148px}
@@ -862,13 +904,12 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   .about__year{order:5;margin:20px 0 0;justify-content:center}
   .about__year b{font-size:3rem}
   .stats{order:6;margin-top:26px;border:1px solid var(--line);border-radius:20px;padding:6px 0}
-  .arch-photo{max-width:340px;margin-inline:auto;aspect-ratio:.9}
+  .arch-photo{max-width:100%;margin-inline:auto;aspect-ratio:1.3;border-radius:120px 120px 18px 18px}
   .stats{grid-template-columns:1fr 1fr;margin-top:30px;padding-block:5px}
   .stats > div{padding:23px 18px!important;border-left:1px solid var(--line)}
   .stats > div:nth-child(odd){border-left:0}
   .stats > div:nth-child(n+3){border-top:1px solid var(--line)}
   .stats b{font-size:clamp(1.7rem,8vw,2rem)}
-  .arch-photo{max-width:300px;aspect-ratio:.85;border-radius:150px 150px 18px 18px}
   .vid-rail{gap:18px}
   .vid-rail::before,.vid-rail::after{flex-basis:calc(50% - 125px)}
   .yt{flex-basis:250px;max-width:74vw}
@@ -913,6 +954,12 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 
   /* na telefonech je všechno na střed */
   .hero{text-align:center}
+  .hero__copy{display:contents}
+  .hero .eyebrow{order:1}
+  .hero-seal{order:2;margin-block:6px 26px}
+  .hero-slogans{order:3}
+  .hero__lead{order:4}
+  .hero__actions{order:5;margin-top:22px}
   .hero .eyebrow{justify-content:center}
   .hero__lead{margin-inline:auto}
   .hero__actions{justify-content:center}
@@ -927,9 +974,8 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   .stats > div{padding-inline:10px!important}
   .rep article{text-align:center}
   .rep-player{padding:20px 14px;border-radius:22px}
-  .songs-viewport{height:240px}
-  .songs{grid-template-columns:1fr 1fr;gap:8px}
-  .song{padding:9px 10px 9px 28px}
+  .songs{grid-template-rows:repeat(3,auto);gap:8px}
+  .song{padding:8px 11px 8px 26px}
   .song::before{left:10px;top:9px;font-size:12px}
   .song__t{font-size:.75rem}
   .song__a{font-size:.625rem}
@@ -1395,7 +1441,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
             <span class="ph__role">první sestava orchestru</span>
             <span class="ph__hint">místo pro historickou fotografii</span>
           </span>
-          <img src="/foto/old_photo.webp" width="620" height="780" loading="lazy" decoding="async"
+          <img src="/foto/old_photo.webp" width="1200" height="852" loading="lazy" decoding="async"
                alt="Big Band Karlovy Vary v roce 1986 — historická fotografie"
                onload="this.closest('figure').classList.remove('is-empty')"
                onerror="this.remove()">
@@ -1412,9 +1458,9 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 <section class="section theatre" id="divadlo" aria-labelledby="divadlo-nadpis">
   <div class="theatre-scene reveal">
     <picture>
-      <!-- Obě fotky patří do /foto/ v repozitáři (divadlo-desktop.png 1672×941, divadlo-mobil.png 1122×1402) -->
-      <source media="(max-width:700px)" srcset="/foto/divadlo-mobil.png" width="1122" height="1402">
-      <img src="/foto/divadlo-desktop.png" alt="Hlediště a jeviště Karlovarského městského divadla" width="1672" height="941" loading="lazy" decoding="async">
+      <!-- Obě fotky jsou v /foto/ (divadlo-desktop.webp 1600×900, divadlo-mobil.webp 1122×1402) -->
+      <source media="(max-width:700px)" srcset="/foto/divadlo-mobil.webp" width="1122" height="1402">
+      <img src="/foto/divadlo-desktop.webp" alt="Hlediště a jeviště Karlovarského městského divadla" width="1600" height="900" loading="lazy" decoding="async">
     </picture>
     <div class="theatre-copy">
       <span class="eyebrow">Domovská scéna</span>
@@ -1439,11 +1485,21 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
       </div>
     </div>
 
-    <div class="vid-rail" id="vidRail" role="group" aria-label="Záznamy z koncertů" data-start="2">
+    <div class="vid-rail" id="vidRail" role="group" aria-label="Záznamy z koncertů" data-start="1">
+      <button class="yt" type="button" data-yt="o4ixDY1Pqdk" aria-label="Přehrát 5. záznam Big Bandu Karlovy Vary">
+        <span class="yt__frame">
+          <span class="yt__glass">
+            <img class="yt__thumb" data-yt-id="o4ixDY1Pqdk" src="https://i.ytimg.com/vi/o4ixDY1Pqdk/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="">
+          </span>
+          <span class="yt__bars" aria-hidden="true"></span>
+          <span class="yt__play" aria-hidden="true"></span>
+        </span>
+        <span class="yt__meta"><span class="yt__num">V</span><span class="yt__title">Big Band Karlovy Vary — záznam z koncertu</span></span>
+      </button>
       <button class="yt" type="button" data-yt="E-YqAIQaOVY" aria-label="Přehrát 1. záznam Big Bandu Karlovy Vary">
         <span class="yt__frame">
           <span class="yt__glass">
-            <img src="https://i.ytimg.com/vi/E-YqAIQaOVY/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/E-YqAIQaOVY/hqdefault.jpg'">
+            <img class="yt__thumb" data-yt-id="E-YqAIQaOVY" src="https://i.ytimg.com/vi/E-YqAIQaOVY/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="">
           </span>
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
@@ -1453,7 +1509,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
       <button class="yt" type="button" data-yt="8EkUIP8M2UA" aria-label="Přehrát 2. záznam Big Bandu Karlovy Vary">
         <span class="yt__frame">
           <span class="yt__glass">
-            <img src="https://i.ytimg.com/vi/8EkUIP8M2UA/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/8EkUIP8M2UA/hqdefault.jpg'">
+            <img class="yt__thumb" data-yt-id="8EkUIP8M2UA" src="https://i.ytimg.com/vi/8EkUIP8M2UA/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="">
           </span>
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
@@ -1463,7 +1519,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
       <button class="yt" type="button" data-yt="Qy5uX-y7d0c" aria-label="Přehrát 3. záznam Big Bandu Karlovy Vary">
         <span class="yt__frame">
           <span class="yt__glass">
-            <img src="https://i.ytimg.com/vi/Qy5uX-y7d0c/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Qy5uX-y7d0c/hqdefault.jpg'">
+            <img class="yt__thumb" data-yt-id="Qy5uX-y7d0c" src="https://i.ytimg.com/vi/Qy5uX-y7d0c/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="">
           </span>
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
@@ -1473,22 +1529,12 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
       <button class="yt" type="button" data-yt="SwFmJBtF_iU" aria-label="Přehrát 4. záznam Big Bandu Karlovy Vary">
         <span class="yt__frame">
           <span class="yt__glass">
-            <img src="https://i.ytimg.com/vi/SwFmJBtF_iU/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/SwFmJBtF_iU/hqdefault.jpg'">
+            <img class="yt__thumb" data-yt-id="SwFmJBtF_iU" src="https://i.ytimg.com/vi/SwFmJBtF_iU/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="">
           </span>
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
         </span>
         <span class="yt__meta"><span class="yt__num">IV</span><span class="yt__title">Big Band Karlovy Vary — záznam z koncertu</span></span>
-      </button>
-      <button class="yt" type="button" data-yt="o4ixDY1Pqdk" aria-label="Přehrát 5. záznam Big Bandu Karlovy Vary">
-        <span class="yt__frame">
-          <span class="yt__glass">
-            <img src="https://i.ytimg.com/vi/o4ixDY1Pqdk/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/o4ixDY1Pqdk/hqdefault.jpg'">
-          </span>
-          <span class="yt__bars" aria-hidden="true"></span>
-          <span class="yt__play" aria-hidden="true"></span>
-        </span>
-        <span class="yt__meta"><span class="yt__num">V</span><span class="yt__title">Big Band Karlovy Vary — záznam z koncertu</span></span>
       </button>
     </div>
     <div class="rail-nav">
@@ -1792,7 +1838,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     </div>
 
     <div class="rep-player reveal">
-      <button type="button" class="rail-arrow" id="repPrev" aria-label="Předchozí skladby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15l8-8 8 8"/></svg></button>
+      <button type="button" class="rail-arrow" id="repPrev" aria-label="Předchozí skladby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8"/></svg></button>
       <div class="songs-viewport" id="songsViewport">
 <!-- AUTO:REPERTOAR -->
         <ul class="songs is-collapsed" id="songList">
@@ -1852,7 +1898,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
         </div>
 <!-- /AUTO:REPERTOAR -->
       </div>
-      <button type="button" class="rail-arrow" id="repNext" aria-label="Další skladby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9l8 8 8-8"/></svg></button>
+      <button type="button" class="rail-arrow" id="repNext" aria-label="Další skladby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg></button>
     </div>
     <p class="rep-note">Ukázka vokálního repertoáru. Orchestr hraje i&nbsp;instrumentální program.</p>
   </div>
@@ -1987,7 +2033,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   <div class="ck__card">
     <span class="ck__badge" aria-hidden="true"><svg><use href="#bb-trumpet"/></svg></span>
     <button type="button" class="ck__close" id="ckClose" aria-label="Zavřít a povolit jen nezbytné">&times;</button>
-    <h2 class="ck__title" id="ckTitle">Než spustíme orchestr</h2>
+    <h2 class="ck__title" id="ckTitle">Než začneme hrát</h2>
     <p class="ck__text">Nezbytné cookies web potřebuje k&nbsp;chodu. Analytické nám řeknou, kolik lidí si nás našlo — můžete je odmítnout a&nbsp;web pojede dál. Podrobnosti v&nbsp;<a href="/gdpr.html">zásadách ochrany osobních údajů</a>.</p>
     <div class="ck__btns">
       <button type="button" class="ck__btn ck__btn--primary" id="ckAll">Přijmout vše</button>
@@ -2031,6 +2077,14 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
       <button type="button" class="ck__btn ck__btn--primary" id="ckSetSave">Uložit volbu</button>
     </div>
   </div>
+</div>
+
+<div class="lbox" id="lbox" role="dialog" aria-modal="true" aria-label="Prohlížeč fotografií">
+  <img class="lbox__img" id="lboxImg" src="" alt="">
+  <p class="lbox__cap" id="lboxCap"></p>
+  <button type="button" class="lbox__btn lbox__prev" id="lboxPrev" aria-label="Předchozí fotografie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8"/></svg></button>
+  <button type="button" class="lbox__btn lbox__next" id="lboxNext" aria-label="Další fotografie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg></button>
+  <button type="button" class="lbox__btn lbox__close" id="lboxClose" aria-label="Zavřít"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
 </div>
 
 </div><!-- /#site-content -->
@@ -2583,7 +2637,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
         kopie.setAttribute('aria-hidden','true');
         list.appendChild(kopie);
       }
-      list.style.setProperty('--dur', Math.max(45, pocet * 2.2) + 's');
+      list.style.setProperty('--dur', Math.max(60, pocet * 3) + 's');
       list.classList.add('is-auto');
     }
 
@@ -2591,19 +2645,19 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     var pozice = 0;
     function krok(smer){
       if(list.classList.contains('is-auto')){
-        var t = list.getBoundingClientRect().top - box.getBoundingClientRect().top;
+        var t = list.getBoundingClientRect().left - box.getBoundingClientRect().left;
         list.classList.remove('is-auto');
         list.style.transition = 'none';
         pozice = t;
-        list.style.transform = 'translateY(' + pozice + 'px)';
+        list.style.transform = 'translateX(' + pozice + 'px)';
         void list.offsetHeight;
         list.style.transition = '';
       }
-      var max = list.scrollHeight / 2;
-      pozice -= smer * box.clientHeight * 0.9;
+      var max = list.scrollWidth / 2;
+      pozice -= smer * box.clientWidth * 0.8;
       if(pozice > 0) pozice -= max;
       if(pozice < -max) pozice += max;
-      list.style.transform = 'translateY(' + pozice + 'px)';
+      list.style.transform = 'translateX(' + pozice + 'px)';
     }
     var b;
     if((b = $('#repNext'))) b.addEventListener('click', function(){ krok(1); });
@@ -2628,6 +2682,25 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 
   /* ---------- 9. YouTube fasáda ---------- */
   safe(function(){
+    /* YouTube nemá u každého videa maxres — postupně zkusíme menší náhledy */
+    var rada = ['maxresdefault','sddefault','hqdefault','mqdefault'];
+    $$('.yt__thumb').forEach(function(im){
+      var id = im.getAttribute('data-yt-id'), krok = 0;
+      function dalsi(){
+        krok++;
+        if(krok >= rada.length){ im.remove(); return; }
+        im.src = 'https://i.ytimg.com/vi/' + id + '/' + rada[krok] + '.jpg';
+      }
+      im.addEventListener('error', dalsi);
+      im.addEventListener('load', function(){
+        /* zástupný šedý obrázek od YouTube je 120 px široký */
+        if(im.naturalWidth && im.naturalWidth <= 121) dalsi();
+      });
+      if(im.complete && im.naturalWidth && im.naturalWidth <= 121) dalsi();
+    });
+  });
+
+  safe(function(){
     $$('.yt').forEach(function(btn){
       btn.addEventListener('click', function(){
         var id = btn.getAttribute('data-yt');
@@ -2648,6 +2721,67 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
         btn.style.cursor = 'default';
       });
     });
+  });
+
+  /* ---------- 9a. prohlížeč fotek v galerii ---------- */
+  safe(function(){
+    var box = $('#lbox'), obr = $('#lboxImg'), popis = $('#lboxCap');
+    if(!box || !obr) return;
+    var figury = $$('.strip figure').filter(function(f){ return !f.hasAttribute('aria-hidden'); });
+    if(!figury.length) return;
+    var fotky = figury.map(function(f){
+      var im = f.querySelector('img'), cap = f.querySelector('figcaption');
+      return {src: im ? im.getAttribute('src') : '', popis: cap ? cap.textContent : ''};
+    });
+    var akt = 0;
+    function ukaz(n){
+      akt = (n % fotky.length + fotky.length) % fotky.length;
+      obr.src = fotky[akt].src;
+      obr.alt = fotky[akt].popis;
+      popis.textContent = fotky[akt].popis;
+    }
+    function otevri(n){
+      ukaz(n); box.classList.add('is-on');
+      d.body.style.overflow = 'hidden';
+      var zav = $('#lboxClose'); if(zav) zav.focus();
+    }
+    function zavri(){ box.classList.remove('is-on'); d.body.style.overflow = ''; }
+
+    $$('.strip figure').forEach(function(f){
+      var im = f.querySelector('img');
+      if(!im) return;
+      f.setAttribute('tabindex','0');
+      f.setAttribute('role','button');
+      function klik(){
+        var src = im.getAttribute('src'), n = 0;
+        fotky.forEach(function(x, k){ if(x.src === src) n = k; });
+        otevri(n);
+      }
+      f.addEventListener('click', klik);
+      f.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); klik(); }
+      });
+    });
+    var b;
+    if((b = $('#lboxPrev'))) b.addEventListener('click', function(){ ukaz(akt - 1); });
+    if((b = $('#lboxNext'))) b.addEventListener('click', function(){ ukaz(akt + 1); });
+    if((b = $('#lboxClose'))) b.addEventListener('click', zavri);
+    box.addEventListener('click', function(e){ if(e.target === box || e.target === obr) zavri(); });
+    d.addEventListener('keydown', function(e){
+      if(!box.classList.contains('is-on')) return;
+      if(e.key === 'Escape') zavri();
+      if(e.key === 'ArrowLeft') ukaz(akt - 1);
+      if(e.key === 'ArrowRight') ukaz(akt + 1);
+    });
+    /* prsty na dotykových displejích */
+    var x0 = null;
+    box.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+    box.addEventListener('touchend', function(e){
+      if(x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if(Math.abs(dx) > 50) ukaz(akt + (dx < 0 ? 1 : -1));
+      x0 = null;
+    }, {passive:true});
   });
 
   /* ---------- 9b. kruhový ekvalizér za pečetí ---------- */
