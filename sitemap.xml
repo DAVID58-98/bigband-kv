@@ -7,7 +7,7 @@
       <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/"/>
       <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/"/>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -17,7 +17,7 @@
       <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/"/>
       <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/"/>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -27,7 +27,7 @@
       <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/"/>
       <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/"/>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -37,7 +37,7 @@
       <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/gdpr.html"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/gdpr.html"/>
       <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/gdpr.html"/>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -47,7 +47,7 @@
       <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/gdpr.html"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/gdpr.html"/>
       <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/gdpr.html"/>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -57,7 +57,7 @@
       <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/gdpr.html"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/gdpr.html"/>
       <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/gdpr.html"/>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -67,7 +67,7 @@
       <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/vop.html"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/vop.html"/>
       <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/vop.html"/>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -77,7 +77,7 @@
       <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/vop.html"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/vop.html"/>
       <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/vop.html"/>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -87,8 +87,86 @@
       <xhtml:link rel="alternate" hreflang="en" href="https://www.bigbandkv.cz/en/vop.html"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://www.bigbandkv.cz/de/vop.html"/>
       <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bigbandkv.cz/vop.html"/>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/david-klenha-jazzovy-zpevak.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/mirka-lendelova-zpevacka.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/jak-vybrat-kapelu-na-ples.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/big-band-na-ples-prostor-a-technika.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/jazz-combo-komorni-sestava.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/kapela-na-firemni-vecirek.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/slozeni-big-bandu.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/ellington-basie-goodman-sinatra.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/adventni-koncert-se-swingem.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/karlovarske-mestske-divadlo-domovska-scena.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/swing-na-lazenske-kolonade.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.bigbandkv.cz/blog/jak-vznika-program-koncertu.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
