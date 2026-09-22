@@ -18,10 +18,16 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#f0ecdf">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
+<link rel="preload" href="/fonts/josefin-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/libre-baskerville-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Písma hostujeme sami — bez připojení k serverům Google (GDPR) a o krok rychleji. */
+@font-face{font-family:'Libre Baskerville';src:url(/fonts/libre-baskerville-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Josefin Sans';src:url(/fonts/josefin-sans-300.woff2) format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Josefin Sans';src:url(/fonts/josefin-sans-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Josefin Sans';src:url(/fonts/josefin-sans-600.woff2) format('woff2');font-weight:600;font-style:normal;font-display:swap}
+</style>
 <style>
 :root{
   color-scheme:light;
@@ -193,7 +199,7 @@ h1{font-size:clamp(2.1rem,4.6vw,3.2rem);line-height:1.08;letter-spacing:-.03em;c
           <li>an accountant and tax adviser as part of bookkeeping,</li>
           <li>public authorities, where required by law.</li>
         </ul>
-        <p>When you play a YouTube video or when Google Fonts are loaded, a connection is made to Google servers, which may process your IP address under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">its own policy</a>. Video thumbnails load without cookies and the video only starts after you click.</p>
+        <p>Fonts are hosted on our own website, so no third party is contacted because of them. A connection to Google servers is made only when you choose to play a YouTube video; Google may then process your IP address under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">its own policy</a>. Video thumbnails load without cookies and the video only starts after you click.</p>
       </section>
 
       <section>

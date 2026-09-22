@@ -18,10 +18,16 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#f0ecdf">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
+<link rel="preload" href="/fonts/josefin-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/libre-baskerville-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Písma hostujeme sami — bez připojení k serverům Google (GDPR) a o krok rychleji. */
+@font-face{font-family:'Libre Baskerville';src:url(/fonts/libre-baskerville-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Josefin Sans';src:url(/fonts/josefin-sans-300.woff2) format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Josefin Sans';src:url(/fonts/josefin-sans-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Josefin Sans';src:url(/fonts/josefin-sans-600.woff2) format('woff2');font-weight:600;font-style:normal;font-display:swap}
+</style>
 <style>
 :root{
   color-scheme:light;
@@ -80,6 +86,7 @@ h1{font-size:clamp(2.1rem,4.6vw,3.2rem);line-height:1.08;letter-spacing:-.03em;c
 }
 .doc section:first-child h2{padding-top:0;border-top:0}
 .doc p{color:var(--muted);margin-bottom:14px;text-wrap:pretty}
+.doc p,.doc li,.doc td{overflow-wrap:break-word;hyphens:auto}
 .doc p b,.doc li b{color:var(--ink);font-weight:600}
 .doc ul{list-style:none;margin:0 0 16px}
 .doc li{position:relative;padding-left:22px;color:var(--muted);margin-bottom:9px}
@@ -193,7 +200,7 @@ h1{font-size:clamp(2.1rem,4.6vw,3.2rem);line-height:1.08;letter-spacing:-.03em;c
           <li>Buchhaltung und Steuerberatung im Rahmen der Buchführung,</li>
           <li>Behörden, soweit gesetzlich vorgeschrieben.</li>
         </ul>
-        <p>Beim Abspielen eines YouTube-Videos oder beim Laden von Google Fonts entsteht eine Verbindung zu Servern von Google, das Ihre IP-Adresse nach <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">eigenen Richtlinien</a> verarbeiten kann. Video-Vorschaubilder werden ohne Cookies geladen, das Video startet erst nach Ihrem Klick.</p>
+        <p>Die Schriften hosten wir auf unserer eigenen Website, sodass deswegen keine Verbindung zu Dritten entsteht. Eine Verbindung zu Servern von Google entsteht nur, wenn Sie selbst ein YouTube-Video starten; Google kann dann Ihre IP-Adresse nach <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">eigenen Richtlinien</a> verarbeiten. Video-Vorschaubilder werden ohne Cookies geladen, das Video startet erst nach Ihrem Klick.</p>
       </section>
 
       <section>
