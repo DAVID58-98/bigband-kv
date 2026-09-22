@@ -1,0 +1,52 @@
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'koncerty.js'
+      - 'sitemap.xml'
+  workflow_dispatch:
+
+jobs:
+  oznam:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Sestavit seznam zmenenych stranek
+        id: seznam
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            ZMENY="index.html en/index.html de/index.html"
+          else
+            ZMENY=$(git diff --name-only --diff-filter=ACM ${{ github.event.before }} ${{ github.sha }} -- '*.html' 'koncerty.js' || true)
+          fi
+          URLS=""
+          for f in $ZMENY; do
+            case "$f" in
+              koncerty.js)  U="https://www.bigbandkv.cz/ https://www.bigbandkv.cz/en/ https://www.bigbandkv.cz/de/" ;;
+              index.html)   U="https://www.bigbandkv.cz/" ;;
+              */index.html) U="https://www.bigbandkv.cz/${f%index.html}" ;;
+              *)            U="https://www.bigbandkv.cz/$f" ;;
+            esac
+            URLS="$URLS $U"
+          done
+          URLS=$(echo $URLS | tr ' ' '\n' | sort -u | grep -v '^$' | head -100)
+          echo "Ohlasuji:"; echo "$URLS"
+          echo "urls<<EOF" >> $GITHUB_OUTPUT; echo "$URLS" >> $GITHUB_OUTPUT; echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Odeslat do IndexNow
+        if: steps.seznam.outputs.urls != ''
+        run: |
+          KLIC="e25efc50f9717bf0005ea38814415e79"
+          JSON=$(printf '%s\n' "${{ steps.seznam.outputs.urls }}" | jq -R . | jq -s \
+            --arg host "www.bigbandkv.cz" --arg key "$KLIC" \
+            '{host: $host, key: $key, keyLocation: ("https://www.bigbandkv.cz/" + $key + ".txt"), urlList: .}')
+          echo "$JSON"
+          curl -sS -X POST https://api.indexnow.org/IndexNow \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            -d "$JSON" -w '\nOdpoved: %{http_code}\n'
