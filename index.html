@@ -60,11 +60,6 @@ gtag('consent','default',{
 <!-- GTM / GA4 zatím nenasazeno. Až vybereš, který ze dvou kontejnerů je živý,
      vlož sem jeho snippet. Consent Mode výše je připravený. -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Josefin+Sans:wght@300;400;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Josefin+Sans:wght@300;400;600&display=swap"></noscript>
 
 <script>
   // Třída .js zapíná animace při rolování. Bez JS zůstane obsah viditelný.
@@ -85,6 +80,15 @@ gtag('consent','default',{
     setTimeout(function(){ h.className = h.className.replace(' bb-intro-wait',''); }, 3500);
   })();
 </script>
+<link rel="preload" href="/fonts/josefin-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/libre-baskerville-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Písma hostujeme sami — bez připojení k serverům Google (GDPR) a o krok rychleji. */
+@font-face{font-family:'Libre Baskerville';src:url(/fonts/libre-baskerville-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Josefin Sans';src:url(/fonts/josefin-sans-300.woff2) format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Josefin Sans';src:url(/fonts/josefin-sans-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Josefin Sans';src:url(/fonts/josefin-sans-600.woff2) format('woff2');font-weight:600;font-style:normal;font-display:swap}
+</style>
 <style>html.bb-intro-wait #site-content{visibility:hidden}</style>
 
 <noscript><style>
@@ -1426,56 +1430,15 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     <div class="gigs reveal">
 <!-- Termíny koncertů — edituj přímo tady -->
       <div class="gig-rail" id="gigRail" role="group" aria-label="Termíny koncertů" data-start="2">
-        <article class="gig" data-i="0" data-date="2026-05-06">
-          <span class="gig__day">06</span>
-          <span class="gig__when">Května 2026 &middot; 19:30</span>
-          <h3 class="gig__name">Hvězdy jazzu</h3>
-          <p class="gig__place"><span>Karlovarské městské divadlo</span><span class="gig__addr">Divadelní náměstí 21, Karlovy Vary</span></p>
-        </article>
-        <article class="gig" data-i="1" data-date="2026-06-27">
-          <span class="gig__day">27</span>
-          <span class="gig__when">Června 2026 &middot; 19:30</span>
-          <h3 class="gig__name">Hvězdy jazzu</h3>
-          <p class="gig__place"><span>Karlovarské městské divadlo</span><span class="gig__addr">Divadelní náměstí 21, Karlovy Vary</span></p>
-        </article>
-        <article class="gig" data-i="2" data-date="2026-09-19">
-          <span class="gig__day">19</span>
-          <span class="gig__when">Září 2026 &middot; 19:30</span>
-          <h3 class="gig__name">Hvězdy jazzu</h3>
-          <p class="gig__place"><span>Karlovarské městské divadlo</span><span class="gig__addr">Divadelní náměstí 21, Karlovy Vary</span></p>
-        </article>
-        <article class="gig" data-i="3" data-date="2026-09-20">
-          <span class="gig__day">20</span>
-          <span class="gig__when">Září 2026 &middot; 16:00</span>
-          <h3 class="gig__name">Výročí Jana Zmrzlého</h3>
-          <p class="gig__place"><span>Městské kulturní středisko</span><span class="gig__addr">Kynšperk nad Ohří</span></p>
-        </article>
-        <article class="gig" data-i="4" data-date="2026-10-10">
-          <span class="gig__day">10</span>
-          <span class="gig__when">Října 2026 &middot; 19:30</span>
-          <h3 class="gig__name">Hvězdy jazzu</h3>
-          <p class="gig__place"><span>Karlovarské městské divadlo</span><span class="gig__addr">Divadelní náměstí 21, Karlovy Vary</span></p>
-        </article>
-        <article class="gig" data-i="5" data-date="2026-11-07">
-          <span class="gig__day">07</span>
-          <span class="gig__when">Listopadu 2026 &middot; 19:30</span>
-          <h3 class="gig__name">Hvězdy jazzu</h3>
-          <p class="gig__place"><span>Karlovarské městské divadlo</span><span class="gig__addr">Divadelní náměstí 21, Karlovy Vary</span></p>
-        </article>
       </div>
       <div class="gig-nav rail-nav">
         <button type="button" class="rail-arrow" id="gigPrev" aria-label="Předchozí termín"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8"/></svg></button>
         <div class="rail-dots" id="gigDots">
-        <button type="button" class="rail-dot is-past" data-go="0" aria-label="Hvězdy jazzu, 6. Kvě 2026"><i></i></button>
-        <button type="button" class="rail-dot is-past" data-go="1" aria-label="Hvězdy jazzu, 27. Čvn 2026"><i></i></button>
-        <button type="button" class="rail-dot" data-go="2" aria-label="Hvězdy jazzu, 19. Zář 2026"><i></i></button>
-        <button type="button" class="rail-dot" data-go="3" aria-label="Výročí Jana Zmrzlého, 20. Zář 2026"><i></i></button>
-        <button type="button" class="rail-dot" data-go="4" aria-label="Hvězdy jazzu, 10. Říj 2026"><i></i></button>
-        <button type="button" class="rail-dot" data-go="5" aria-label="Hvězdy jazzu, 7. Lis 2026"><i></i></button>
         </div>
         <button type="button" class="rail-arrow" id="gigNext" aria-label="Další termín"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg></button>
       </div>
 <!-- /Termíny koncertů -->
+      <script src="/koncerty.js"></script>
     </div>
   </div>
 </section>
@@ -3244,6 +3207,23 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     seal.addEventListener('pointerleave', function(){ seal.style.transform = ''; });
   });
 
+
+  /* ---------- 12. počítadlo návštěv (GoatCounter) ----------
+     Měří jen počet zobrazení a odkud návštěvník přišel, bez cookies.
+     Kód svého účtu doplňte níž místo VAS-KOD. Spustí se jen se souhlasem. */
+  safe(function(){
+    var KOD = 'VAS-KOD';
+    if(KOD === 'VAS-KOD') return;              /* dokud kód nedoplníte, nic se nenačítá */
+    var v = {};
+    try{ v = JSON.parse(get('bbkv-consent') || '{}'); }catch(e){}
+    if(!v.analytics) return;
+    var s = d.createElement('script');
+    s.async = true;
+    s.src = 'https://gc.zgo.at/count.js';
+    s.setAttribute('data-goatcounter', 'https://' + KOD + '.goatcounter.com/count');
+    d.body.appendChild(s);
+  });
+
   /* ---------- 11. cookies ---------- */
   safe(function(){
     var karta = $('#ck'), modal = $('#ckSet');
@@ -3654,132 +3634,6 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           }
         }
       ]
-    },
-    {
-      "@type": "MusicEvent",
-      "@id": "https://www.bigbandkv.cz/#koncert-2026-09-19",
-      "name": "Hvězdy jazzu",
-      "startDate": "2026-09-19T19:30:00+02:00",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "location": {
-        "@type": "Place",
-        "name": "Karlovarské městské divadlo",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Karlovy Vary",
-          "addressCountry": "CZ",
-          "streetAddress": "Divadelní náměstí 21",
-          "postalCode": "360 01"
-        }
-      },
-      "performer": {
-        "@id": "https://www.bigbandkv.cz/#orchestr"
-      },
-      "organizer": {
-        "@id": "https://www.bigbandkv.cz/#orchestr"
-      },
-      "image": [
-        "https://www.bigbandkv.cz/SEO/og-image.png",
-        "https://www.bigbandkv.cz/SEO/google.png",
-        "https://www.bigbandkv.cz/SEO/og-square.png"
-      ],
-      "url": "https://www.bigbandkv.cz/#koncerty",
-      "inLanguage": "cs"
-    },
-    {
-      "@type": "MusicEvent",
-      "@id": "https://www.bigbandkv.cz/#koncert-2026-09-20",
-      "name": "Výročí Jana Zmrzlého",
-      "startDate": "2026-09-20T16:00:00+02:00",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "location": {
-        "@type": "Place",
-        "name": "Městské kulturní středisko",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Kynšperk nad Ohří",
-          "addressCountry": "CZ"
-        }
-      },
-      "performer": {
-        "@id": "https://www.bigbandkv.cz/#orchestr"
-      },
-      "organizer": {
-        "@id": "https://www.bigbandkv.cz/#orchestr"
-      },
-      "image": [
-        "https://www.bigbandkv.cz/SEO/og-image.png",
-        "https://www.bigbandkv.cz/SEO/google.png",
-        "https://www.bigbandkv.cz/SEO/og-square.png"
-      ],
-      "url": "https://www.bigbandkv.cz/#koncerty",
-      "inLanguage": "cs"
-    },
-    {
-      "@type": "MusicEvent",
-      "@id": "https://www.bigbandkv.cz/#koncert-2026-10-10",
-      "name": "Hvězdy jazzu",
-      "startDate": "2026-10-10T19:30:00+02:00",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "location": {
-        "@type": "Place",
-        "name": "Karlovarské městské divadlo",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Karlovy Vary",
-          "addressCountry": "CZ",
-          "streetAddress": "Divadelní náměstí 21",
-          "postalCode": "360 01"
-        }
-      },
-      "performer": {
-        "@id": "https://www.bigbandkv.cz/#orchestr"
-      },
-      "organizer": {
-        "@id": "https://www.bigbandkv.cz/#orchestr"
-      },
-      "image": [
-        "https://www.bigbandkv.cz/SEO/og-image.png",
-        "https://www.bigbandkv.cz/SEO/google.png",
-        "https://www.bigbandkv.cz/SEO/og-square.png"
-      ],
-      "url": "https://www.bigbandkv.cz/#koncerty",
-      "inLanguage": "cs"
-    },
-    {
-      "@type": "MusicEvent",
-      "@id": "https://www.bigbandkv.cz/#koncert-2026-11-07",
-      "name": "Hvězdy jazzu",
-      "startDate": "2026-11-07T19:30:00+01:00",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "location": {
-        "@type": "Place",
-        "name": "Karlovarské městské divadlo",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Karlovy Vary",
-          "addressCountry": "CZ",
-          "streetAddress": "Divadelní náměstí 21",
-          "postalCode": "360 01"
-        }
-      },
-      "performer": {
-        "@id": "https://www.bigbandkv.cz/#orchestr"
-      },
-      "organizer": {
-        "@id": "https://www.bigbandkv.cz/#orchestr"
-      },
-      "image": [
-        "https://www.bigbandkv.cz/SEO/og-image.png",
-        "https://www.bigbandkv.cz/SEO/google.png",
-        "https://www.bigbandkv.cz/SEO/og-square.png"
-      ],
-      "url": "https://www.bigbandkv.cz/#koncerty",
-      "inLanguage": "cs"
     }
   ]
 }
