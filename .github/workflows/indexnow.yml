@@ -47,6 +47,6 @@ jobs:
             --arg host "www.bigbandkv.cz" --arg key "$KLIC" \
             '{host: $host, key: $key, keyLocation: ("https://www.bigbandkv.cz/" + $key + ".txt"), urlList: .}')
           echo "$JSON"
-          curl -sS -X POST https://api.indexnow.org/IndexNow \
+          curl --fail-with-body -sS -X POST https://api.indexnow.org/IndexNow \
             -H 'Content-Type: application/json; charset=utf-8' \
             -d "$JSON" -w '\nOdpoved: %{http_code}\n'
