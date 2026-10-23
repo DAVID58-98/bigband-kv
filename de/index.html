@@ -402,7 +402,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   background:var(--paper-light);border:1px solid var(--line);border-radius:22px;
   box-shadow:0 12px 34px -20px #35171f40;
   padding:32px 24px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;
-  transition:transform .45s cubic-bezier(.22,.8,.3,1),border-color .3s,box-shadow .3s,opacity .45s;
+  transition:transform .45s cubic-bezier(.22,.8,.3,1),border-color .3s,box-shadow .3s,opacity .45s,filter .45s;
 }
 .gig::before{
   content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);
@@ -412,15 +412,15 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
 .gig:hover{border-color:var(--red);box-shadow:0 20px 46px -18px #4c182866;transform:translateY(-6px)}
 .gig:hover::before,.gig.is-current::before{opacity:1}
 .gig.is-current{border-color:#9b263680;box-shadow:0 18px 44px -18px #9b263666}
-.gig--past{opacity:.6}
+.gig--past{filter:grayscale(.9)}
 .gig--past .gig__day,.gig--past .gig__name{color:var(--muted)}
-.gig--past:hover{opacity:1}
+.gig--past:hover{filter:none}
 .gig__day{font:400 3.75rem/.95 var(--display);letter-spacing:-.04em;color:var(--wine);margin-top:6px}
-.gig__when{display:block;margin:12px 0 16px;font-size:.6875rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.gig__when{display:block;margin:12px 0 16px;font-size:.6875rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#7f6340}
 .gig__name{font:400 1.375rem/1.25 var(--display);color:var(--wine)}
 .gig__place{margin-top:10px;font-size:.875rem;line-height:1.55;color:var(--muted)}
 .gig__place span{display:block}
-.gig__addr{font-size:.8125rem;opacity:.85}
+.gig__addr{font-size:.8125rem}
 .gig__tickets{
   display:inline-flex;margin-top:16px;font-size:.6875rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
   color:var(--red);border-bottom:1px solid #9b263666;padding-bottom:3px;
@@ -1195,9 +1195,9 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
      ============================================================ -->
 <header class="header" id="nav">
   <div class="container header__inner">
-    <a class="brand" href="#uvod" aria-label="Big Band Karlovy Vary — Startseite">
+    <a class="brand" href="#uvod">
       <span class="brand-mark" aria-hidden="true"><svg><use href="#bb-trumpet"/></svg></span>
-      <span class="brand-text">Big Band<small>Karlovy Vary</small></span>
+      <span class="brand-text">Big Band <small>Karlovy Vary</small></span>
     </a>
 
     <nav aria-label="Hauptnavigation">
@@ -1288,123 +1288,123 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   <div class="strip">
     <div class="strip__track">
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_1.webp" srcset="/foto/thumb/foto_1-420.webp 420w, /foto/thumb/foto_1.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_1.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_1.webp" srcset="/foto/thumb/foto_1-420.webp 420w, /foto/thumb/foto_1-560.webp 560w, /foto/thumb/foto_1.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_1.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_2.webp" srcset="/foto/thumb/foto_2-420.webp 420w, /foto/thumb/foto_2.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_2.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_2.webp" srcset="/foto/thumb/foto_2-420.webp 420w, /foto/thumb/foto_2-560.webp 560w, /foto/thumb/foto_2.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_2.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_3.webp" srcset="/foto/thumb/foto_3-420.webp 420w, /foto/thumb/foto_3.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_3.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_3.webp" srcset="/foto/thumb/foto_3-420.webp 420w, /foto/thumb/foto_3-560.webp 560w, /foto/thumb/foto_3.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_3.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_4.webp" srcset="/foto/thumb/foto_4-420.webp 420w, /foto/thumb/foto_4.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_4.webp" width="360" height="240" loading="lazy" decoding="async" alt="Lichterfest, Karlovy Vary 2024 — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_4.webp" srcset="/foto/thumb/foto_4-420.webp 420w, /foto/thumb/foto_4-560.webp 560w, /foto/thumb/foto_4.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_4.webp" width="360" height="240" loading="lazy" decoding="async" alt="Lichterfest, Karlovy Vary 2024 — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Lichterfest, Karlovy Vary 2024</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_5.webp" srcset="/foto/thumb/foto_5-420.webp 420w, /foto/thumb/foto_5.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_5.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kursaal „Casino“, Mariánské Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_5.webp" srcset="/foto/thumb/foto_5-420.webp 420w, /foto/thumb/foto_5-560.webp 560w, /foto/thumb/foto_5.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_5.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kursaal „Casino“, Mariánské Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Kursaal „Casino“, Mariánské Lázně</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_6.webp" srcset="/foto/thumb/foto_6-420.webp 420w, /foto/thumb/foto_6.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_6.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_6.webp" srcset="/foto/thumb/foto_6-420.webp 420w, /foto/thumb/foto_6-560.webp 560w, /foto/thumb/foto_6.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_6.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_7.webp" srcset="/foto/thumb/foto_7-420.webp 420w, /foto/thumb/foto_7.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_7.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_7.webp" srcset="/foto/thumb/foto_7-420.webp 420w, /foto/thumb/foto_7-560.webp 560w, /foto/thumb/foto_7.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_7.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_8.webp" srcset="/foto/thumb/foto_8-420.webp 420w, /foto/thumb/foto_8.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_8.webp" width="360" height="240" loading="lazy" decoding="async" alt="Luhe-Wildenau, Bavorsko — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_8.webp" srcset="/foto/thumb/foto_8-420.webp 420w, /foto/thumb/foto_8-560.webp 560w, /foto/thumb/foto_8.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_8.webp" width="360" height="240" loading="lazy" decoding="async" alt="Luhe-Wildenau, Bavorsko — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Luhe-Wildenau, Bavorsko</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_9.webp" srcset="/foto/thumb/foto_9-420.webp 420w, /foto/thumb/foto_9.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_9.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_9.webp" srcset="/foto/thumb/foto_9-420.webp 420w, /foto/thumb/foto_9-560.webp 560w, /foto/thumb/foto_9.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_9.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_10.webp" srcset="/foto/thumb/foto_10-420.webp 420w, /foto/thumb/foto_10.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_10.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kursaal „Casino“, Mariánské Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_10.webp" srcset="/foto/thumb/foto_10-420.webp 420w, /foto/thumb/foto_10-560.webp 560w, /foto/thumb/foto_10.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_10.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kursaal „Casino“, Mariánské Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Kursaal „Casino“, Mariánské Lázně</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_11.webp" srcset="/foto/thumb/foto_11-420.webp 420w, /foto/thumb/foto_11.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_11.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kirche St. Peter und Paul, Františkovy Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_11.webp" srcset="/foto/thumb/foto_11-420.webp 420w, /foto/thumb/foto_11-560.webp 560w, /foto/thumb/foto_11.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_11.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kirche St. Peter und Paul, Františkovy Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Kirche St. Peter und Paul, Františkovy Lázně</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_12.webp" srcset="/foto/thumb/foto_12-420.webp 420w, /foto/thumb/foto_12.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_12.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_12.webp" srcset="/foto/thumb/foto_12-420.webp 420w, /foto/thumb/foto_12-560.webp 560w, /foto/thumb/foto_12.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_12.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_13.webp" srcset="/foto/thumb/foto_13-420.webp 420w, /foto/thumb/foto_13.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_13.webp" width="360" height="240" loading="lazy" decoding="async" alt="Luhe-Wildenau, Bavorsko — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_13.webp" srcset="/foto/thumb/foto_13-420.webp 420w, /foto/thumb/foto_13-560.webp 560w, /foto/thumb/foto_13.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_13.webp" width="360" height="240" loading="lazy" decoding="async" alt="Luhe-Wildenau, Bavorsko — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Luhe-Wildenau, Bavorsko</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_14.webp" srcset="/foto/thumb/foto_14-420.webp 420w, /foto/thumb/foto_14.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_14.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_14.webp" srcset="/foto/thumb/foto_14-420.webp 420w, /foto/thumb/foto_14-560.webp 560w, /foto/thumb/foto_14.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_14.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure>
-          <span class="photo-frame"><img src="/foto/thumb/foto_15.webp" srcset="/foto/thumb/foto_15-420.webp 420w, /foto/thumb/foto_15.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_15.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_15.webp" srcset="/foto/thumb/foto_15-420.webp 420w, /foto/thumb/foto_15-560.webp 560w, /foto/thumb/foto_15.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_15.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_1.webp" srcset="/foto/thumb/foto_1-420.webp 420w, /foto/thumb/foto_1.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_1.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_1.webp" srcset="/foto/thumb/foto_1-420.webp 420w, /foto/thumb/foto_1-560.webp 560w, /foto/thumb/foto_1.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_1.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_2.webp" srcset="/foto/thumb/foto_2-420.webp 420w, /foto/thumb/foto_2.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_2.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_2.webp" srcset="/foto/thumb/foto_2-420.webp 420w, /foto/thumb/foto_2-560.webp 560w, /foto/thumb/foto_2.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_2.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_3.webp" srcset="/foto/thumb/foto_3-420.webp 420w, /foto/thumb/foto_3.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_3.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_3.webp" srcset="/foto/thumb/foto_3-420.webp 420w, /foto/thumb/foto_3-560.webp 560w, /foto/thumb/foto_3.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_3.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_4.webp" srcset="/foto/thumb/foto_4-420.webp 420w, /foto/thumb/foto_4.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_4.webp" width="360" height="240" loading="lazy" decoding="async" alt="Lichterfest, Karlovy Vary 2024 — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_4.webp" srcset="/foto/thumb/foto_4-420.webp 420w, /foto/thumb/foto_4-560.webp 560w, /foto/thumb/foto_4.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_4.webp" width="360" height="240" loading="lazy" decoding="async" alt="Lichterfest, Karlovy Vary 2024 — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Lichterfest, Karlovy Vary 2024</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_5.webp" srcset="/foto/thumb/foto_5-420.webp 420w, /foto/thumb/foto_5.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_5.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kursaal „Casino“, Mariánské Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_5.webp" srcset="/foto/thumb/foto_5-420.webp 420w, /foto/thumb/foto_5-560.webp 560w, /foto/thumb/foto_5.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_5.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kursaal „Casino“, Mariánské Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Kursaal „Casino“, Mariánské Lázně</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_6.webp" srcset="/foto/thumb/foto_6-420.webp 420w, /foto/thumb/foto_6.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_6.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_6.webp" srcset="/foto/thumb/foto_6-420.webp 420w, /foto/thumb/foto_6-560.webp 560w, /foto/thumb/foto_6.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_6.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_7.webp" srcset="/foto/thumb/foto_7-420.webp 420w, /foto/thumb/foto_7.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_7.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_7.webp" srcset="/foto/thumb/foto_7-420.webp 420w, /foto/thumb/foto_7-560.webp 560w, /foto/thumb/foto_7.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_7.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_8.webp" srcset="/foto/thumb/foto_8-420.webp 420w, /foto/thumb/foto_8.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_8.webp" width="360" height="240" loading="lazy" decoding="async" alt="Luhe-Wildenau, Bavorsko — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_8.webp" srcset="/foto/thumb/foto_8-420.webp 420w, /foto/thumb/foto_8-560.webp 560w, /foto/thumb/foto_8.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_8.webp" width="360" height="240" loading="lazy" decoding="async" alt="Luhe-Wildenau, Bavorsko — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Luhe-Wildenau, Bavorsko</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_9.webp" srcset="/foto/thumb/foto_9-420.webp 420w, /foto/thumb/foto_9.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_9.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_9.webp" srcset="/foto/thumb/foto_9-420.webp 420w, /foto/thumb/foto_9-560.webp 560w, /foto/thumb/foto_9.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_9.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_10.webp" srcset="/foto/thumb/foto_10-420.webp 420w, /foto/thumb/foto_10.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_10.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kursaal „Casino“, Mariánské Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_10.webp" srcset="/foto/thumb/foto_10-420.webp 420w, /foto/thumb/foto_10-560.webp 560w, /foto/thumb/foto_10.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_10.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kursaal „Casino“, Mariánské Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Kursaal „Casino“, Mariánské Lázně</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_11.webp" srcset="/foto/thumb/foto_11-420.webp 420w, /foto/thumb/foto_11.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_11.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kirche St. Peter und Paul, Františkovy Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_11.webp" srcset="/foto/thumb/foto_11-420.webp 420w, /foto/thumb/foto_11-560.webp 560w, /foto/thumb/foto_11.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_11.webp" width="360" height="240" loading="lazy" decoding="async" alt="Kirche St. Peter und Paul, Františkovy Lázně — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Kirche St. Peter und Paul, Františkovy Lázně</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_12.webp" srcset="/foto/thumb/foto_12-420.webp 420w, /foto/thumb/foto_12.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_12.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_12.webp" srcset="/foto/thumb/foto_12-420.webp 420w, /foto/thumb/foto_12-560.webp 560w, /foto/thumb/foto_12.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_12.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_13.webp" srcset="/foto/thumb/foto_13-420.webp 420w, /foto/thumb/foto_13.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_13.webp" width="360" height="240" loading="lazy" decoding="async" alt="Luhe-Wildenau, Bavorsko — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_13.webp" srcset="/foto/thumb/foto_13-420.webp 420w, /foto/thumb/foto_13-560.webp 560w, /foto/thumb/foto_13.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_13.webp" width="360" height="240" loading="lazy" decoding="async" alt="Luhe-Wildenau, Bavorsko — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Luhe-Wildenau, Bavorsko</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_14.webp" srcset="/foto/thumb/foto_14-420.webp 420w, /foto/thumb/foto_14.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_14.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_14.webp" srcset="/foto/thumb/foto_14-420.webp 420w, /foto/thumb/foto_14-560.webp 560w, /foto/thumb/foto_14.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_14.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
         <figure aria-hidden="true">
-          <span class="photo-frame"><img src="/foto/thumb/foto_15.webp" srcset="/foto/thumb/foto_15-420.webp 420w, /foto/thumb/foto_15.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_15.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
+          <span class="photo-frame"><img src="/foto/thumb/foto_15.webp" srcset="/foto/thumb/foto_15-420.webp 420w, /foto/thumb/foto_15-560.webp 560w, /foto/thumb/foto_15.webp 720w" sizes="(max-width:700px) 72vw, 360px" data-full="/foto/foto_15.webp" width="360" height="240" loading="lazy" decoding="async" alt="Stadttheater Karlovy Vary — Big Band Karlovy Vary" onerror="this.closest('figure').remove()"></span>
           <figcaption>Stadttheater Karlovy Vary</figcaption>
         </figure>
     </div>
@@ -1476,7 +1476,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
             <span class="ph__role">die erste Besetzung des Orchesters</span>
             <span class="ph__hint">Platz für ein historisches Foto</span>
           </span>
-          <img src="/foto/thumb/old_photo.webp" srcset="/foto/thumb/old_photo-480.webp 480w, /foto/thumb/old_photo.webp 800w, /foto/old_photo.webp 1200w" sizes="(max-width:700px) 90vw, 46vw" width="1200" height="852" loading="lazy" decoding="async"
+          <img src="/foto/thumb/old_photo.webp" srcset="/foto/thumb/old_photo-480.webp 480w, /foto/thumb/old_photo-640.webp 640w, /foto/thumb/old_photo.webp 800w, /foto/old_photo.webp 1200w" sizes="(max-width:700px) 90vw, 46vw" width="1200" height="852" loading="lazy" decoding="async"
                alt="Big Band Karlovy Vary im Jahr 1986 — historische Aufnahme"
                onerror="this.closest('figure').classList.add('is-empty');this.remove()">
           <figcaption class="arch-photo__cap">Big Band Karlovy Vary &middot; 1986</figcaption>
@@ -1499,7 +1499,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
   <div class="theatre-scene reveal">
     <picture>
       <!-- Obě fotky jsou v /foto/ (divadlo-desktop.webp 1600×900, divadlo-mobil.webp 1122×1402) -->
-      <source media="(max-width:700px)" srcset="/foto/thumb/divadlo-mobil-480.webp 480w, /foto/thumb/divadlo-mobil-760.webp 760w, /foto/divadlo-mobil.webp 1122w" sizes="100vw" width="1122" height="1402">
+      <source media="(max-width:700px)" srcset="/foto/thumb/divadlo-mobil-480.webp 480w, /foto/thumb/divadlo-mobil-600.webp 600w, /foto/thumb/divadlo-mobil-760.webp 760w, /foto/divadlo-mobil.webp 1122w" sizes="100vw" width="1122" height="1402">
       <img src="/foto/divadlo-desktop.webp" srcset="/foto/thumb/divadlo-desktop-1000.webp 1000w, /foto/divadlo-desktop.webp 1600w" sizes="100vw" alt="Zuschauerraum und Bühne des Stadttheaters Karlovy Vary" width="1600" height="900" loading="lazy" decoding="async">
     </picture>
     <div class="theatre-copy">
@@ -1526,7 +1526,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
     </div>
 
     <div class="vid-rail" id="vidRail" role="group" aria-label="Konzertmitschnitte" data-start="1">
-      <button class="yt" type="button" data-yt="o4ixDY1Pqdk" aria-label="Aufnahme 5 von Big Band Karlovy Vary abspielen">
+      <button class="yt" type="button" data-yt="o4ixDY1Pqdk">
         <span class="yt__frame">
           <span class="yt__glass">
             <img class="yt__thumb" data-yt-id="o4ixDY1Pqdk" src="https://i.ytimg.com/vi/o4ixDY1Pqdk/sddefault.jpg" width="640" height="360" loading="lazy" decoding="async" alt="">
@@ -1534,9 +1534,9 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
         </span>
-        <span class="yt__meta"><span class="yt__num">V</span><span class="yt__title">It Don’t Mean a Thing (If It Ain’t Got That Swing)<span class="yt__author">Duke Ellington</span></span></span>
+        <span class="yt__meta"><span class="sr-only">Aufnahme abspielen: </span><span class="yt__num" aria-hidden="true">V</span><span class="yt__title">It Don’t Mean a Thing (If It Ain’t Got That Swing)<span class="yt__author">Duke Ellington</span></span></span>
       </button>
-      <button class="yt" type="button" data-yt="E-YqAIQaOVY" aria-label="Aufnahme 1 von Big Band Karlovy Vary abspielen">
+      <button class="yt" type="button" data-yt="E-YqAIQaOVY">
         <span class="yt__frame">
           <span class="yt__glass">
             <img class="yt__thumb" data-yt-id="E-YqAIQaOVY" src="https://i.ytimg.com/vi/E-YqAIQaOVY/sddefault.jpg" width="640" height="360" loading="lazy" decoding="async" alt="">
@@ -1544,9 +1544,9 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
         </span>
-        <span class="yt__meta"><span class="yt__num">I</span><span class="yt__title">In the Mood<span class="yt__author">Glenn Miller</span></span></span>
+        <span class="yt__meta"><span class="sr-only">Aufnahme abspielen: </span><span class="yt__num" aria-hidden="true">I</span><span class="yt__title">In the Mood<span class="yt__author">Glenn Miller</span></span></span>
       </button>
-      <button class="yt" type="button" data-yt="8EkUIP8M2UA" aria-label="Aufnahme 2 von Big Band Karlovy Vary abspielen">
+      <button class="yt" type="button" data-yt="8EkUIP8M2UA">
         <span class="yt__frame">
           <span class="yt__glass">
             <img class="yt__thumb" data-yt-id="8EkUIP8M2UA" src="https://i.ytimg.com/vi/8EkUIP8M2UA/sddefault.jpg" width="640" height="360" loading="lazy" decoding="async" alt="">
@@ -1554,9 +1554,9 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
         </span>
-        <span class="yt__meta"><span class="yt__num">II</span><span class="yt__title">L-O-V-E<span class="yt__author">Bert Kaempfert</span></span></span>
+        <span class="yt__meta"><span class="sr-only">Aufnahme abspielen: </span><span class="yt__num" aria-hidden="true">II</span><span class="yt__title">L-O-V-E<span class="yt__author">Bert Kaempfert</span></span></span>
       </button>
-      <button class="yt" type="button" data-yt="Qy5uX-y7d0c" aria-label="Aufnahme 3 von Big Band Karlovy Vary abspielen">
+      <button class="yt" type="button" data-yt="Qy5uX-y7d0c">
         <span class="yt__frame">
           <span class="yt__glass">
             <img class="yt__thumb" data-yt-id="Qy5uX-y7d0c" src="https://i.ytimg.com/vi/Qy5uX-y7d0c/sddefault.jpg" width="640" height="360" loading="lazy" decoding="async" alt="">
@@ -1564,9 +1564,9 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
         </span>
-        <span class="yt__meta"><span class="yt__num">III</span><span class="yt__title">Somethin’ Stupid<span class="yt__author">C. Carson Parks</span></span></span>
+        <span class="yt__meta"><span class="sr-only">Aufnahme abspielen: </span><span class="yt__num" aria-hidden="true">III</span><span class="yt__title">Somethin’ Stupid<span class="yt__author">C. Carson Parks</span></span></span>
       </button>
-      <button class="yt" type="button" data-yt="SwFmJBtF_iU" aria-label="Aufnahme 4 von Big Band Karlovy Vary abspielen">
+      <button class="yt" type="button" data-yt="SwFmJBtF_iU">
         <span class="yt__frame">
           <span class="yt__glass">
             <img class="yt__thumb" data-yt-id="SwFmJBtF_iU" src="https://i.ytimg.com/vi/SwFmJBtF_iU/sddefault.jpg" width="640" height="360" loading="lazy" decoding="async" alt="">
@@ -1574,7 +1574,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
           <span class="yt__bars" aria-hidden="true"></span>
           <span class="yt__play" aria-hidden="true"></span>
         </span>
-        <span class="yt__meta"><span class="yt__num">IV</span><span class="yt__title">That’s All<span class="yt__author">Bob Haymes / Alan Brandt</span></span></span>
+        <span class="yt__meta"><span class="sr-only">Aufnahme abspielen: </span><span class="yt__num" aria-hidden="true">IV</span><span class="yt__title">That’s All<span class="yt__author">Bob Haymes / Alan Brandt</span></span></span>
       </button>
     </div>
     <div class="rail-nav">
@@ -1616,7 +1616,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/mirka-lendelova.png" width="330" height="440" loading="lazy" decoding="async" alt="Mirka Lendělová — Gesang, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/mirka-lendelova.webp" width="330" height="440" loading="lazy" decoding="async" alt="Mirka Lendělová — Gesang, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Mirka Lendělová</span>
                   <span class="member__role">Gesang</span>
@@ -1632,7 +1632,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/zdenek-kram.png" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Krám — Kapellmeister · Posaune, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/zdenek-kram.webp" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Krám — Kapellmeister · Posaune, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Zdeněk Krám</span>
                   <span class="member__role">Kapellmeister · Posaune</span>
@@ -1648,7 +1648,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/david-klenha.png" width="330" height="440" loading="lazy" decoding="async" alt="David Kleňha — Gesang, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/david-klenha.webp" width="330" height="440" loading="lazy" decoding="async" alt="David Kleňha — Gesang, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">David Kleňha</span>
                   <span class="member__role">Gesang</span>
@@ -1669,7 +1669,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/karel-simandl.png" width="330" height="440" loading="lazy" decoding="async" alt="Karel Šimandl — Klavier, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/karel-simandl.webp" width="330" height="440" loading="lazy" decoding="async" alt="Karel Šimandl — Klavier, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Karel Šimandl</span>
                   <span class="member__role">Klavier</span>
@@ -1685,7 +1685,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/pavel-horych.png" width="330" height="440" loading="lazy" decoding="async" alt="Pavel Horych — Gitarre, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/pavel-horych.webp" width="330" height="440" loading="lazy" decoding="async" alt="Pavel Horych — Gitarre, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Pavel Horych</span>
                   <span class="member__role">Gitarre</span>
@@ -1701,7 +1701,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/jakub-smutny.png" width="330" height="440" loading="lazy" decoding="async" alt="Jakub Smutný — Bassgitarre, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/jakub-smutny.webp" width="330" height="440" loading="lazy" decoding="async" alt="Jakub Smutný — Bassgitarre, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Jakub Smutný</span>
                   <span class="member__role">Bassgitarre</span>
@@ -1717,7 +1717,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/vaclav-vejvoda.png" width="330" height="440" loading="lazy" decoding="async" alt="Václav Vejvoda — Schlagzeug, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/vaclav-vejvoda.webp" width="330" height="440" loading="lazy" decoding="async" alt="Václav Vejvoda — Schlagzeug, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Václav Vejvoda</span>
                   <span class="member__role">Schlagzeug</span>
@@ -1738,7 +1738,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/jan-soltesz.png" width="330" height="440" loading="lazy" decoding="async" alt="Jan Šoltész — Altsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/jan-soltesz.webp" width="330" height="440" loading="lazy" decoding="async" alt="Jan Šoltész — Altsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Jan Šoltész</span>
                   <span class="member__role">Altsaxofon</span>
@@ -1754,7 +1754,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/antonin-tynek.png" width="330" height="440" loading="lazy" decoding="async" alt="Antonín Týnek — Altsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/antonin-tynek.webp" width="330" height="440" loading="lazy" decoding="async" alt="Antonín Týnek — Altsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Antonín Týnek</span>
                   <span class="member__role">Altsaxofon</span>
@@ -1770,7 +1770,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/milan-szep.png" width="330" height="440" loading="lazy" decoding="async" alt="Milan Szep — Tenorsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/milan-szep.webp" width="330" height="440" loading="lazy" decoding="async" alt="Milan Szep — Tenorsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Milan Szep</span>
                   <span class="member__role">Tenorsaxofon</span>
@@ -1786,7 +1786,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/vaclav-rozec.png" width="330" height="440" loading="lazy" decoding="async" alt="Václav Rožec — Tenorsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/vaclav-rozec.webp" width="330" height="440" loading="lazy" decoding="async" alt="Václav Rožec — Tenorsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Václav Rožec</span>
                   <span class="member__role">Tenorsaxofon</span>
@@ -1802,7 +1802,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/jiri-drahokoupil.png" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Drahokoupil — Baritonsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/jiri-drahokoupil.webp" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Drahokoupil — Baritonsaxofon, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Jiří Drahokoupil</span>
                   <span class="member__role">Baritonsaxofon</span>
@@ -1823,7 +1823,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/pavel-truhlar.png" width="330" height="440" loading="lazy" decoding="async" alt="Pavel Truhlář — Posaune, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/pavel-truhlar.webp" width="330" height="440" loading="lazy" decoding="async" alt="Pavel Truhlář — Posaune, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Pavel Truhlář</span>
                   <span class="member__role">Posaune</span>
@@ -1839,7 +1839,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/jiri-kares-st.png" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Kareš st. — Posaune, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/jiri-kares-st.webp" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Kareš st. — Posaune, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Jiří Kareš st.</span>
                   <span class="member__role">Posaune</span>
@@ -1855,7 +1855,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/jiri-kares-ml.png" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Kareš ml. — Posaune, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/jiri-kares-ml.webp" width="330" height="440" loading="lazy" decoding="async" alt="Jiří Kareš ml. — Posaune, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Jiří Kareš ml.</span>
                   <span class="member__role">Posaune</span>
@@ -1876,7 +1876,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/jaroslav-dlouhy.png" width="330" height="440" loading="lazy" decoding="async" alt="Jaroslav Dlouhý — Trompete, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/jaroslav-dlouhy.webp" width="330" height="440" loading="lazy" decoding="async" alt="Jaroslav Dlouhý — Trompete, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Jaroslav Dlouhý</span>
                   <span class="member__role">Trompete</span>
@@ -1892,7 +1892,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/jindrich-zmrzly.png" width="330" height="440" loading="lazy" decoding="async" alt="Jindřich Zmrzlý — Trompete, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/jindrich-zmrzly.webp" width="330" height="440" loading="lazy" decoding="async" alt="Jindřich Zmrzlý — Trompete, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Jindřich Zmrzlý</span>
                   <span class="member__role">Trompete</span>
@@ -1908,7 +1908,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/stanislav-barta.png" width="330" height="440" loading="lazy" decoding="async" alt="Stanislav Bárta — Trompete, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/stanislav-barta.webp" width="330" height="440" loading="lazy" decoding="async" alt="Stanislav Bárta — Trompete, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Stanislav Bárta</span>
                   <span class="member__role">Trompete</span>
@@ -1924,7 +1924,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
                   <span class="member__halo"></span>
                   <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
                 </span>
-                <span class="member__portrait"><img src="/hudebnici/zdenek-havlicek.png" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Havlíček — Trompete, Big Band Karlovy Vary" onerror="this.remove()"></span>
+                <span class="member__portrait"><img src="/hudebnici/zdenek-havlicek.webp" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Havlíček — Trompete, Big Band Karlovy Vary" onerror="this.remove()"></span>
                 <span class="member__front">
                   <span class="member__name">Zdeněk Havlíček</span>
                   <span class="member__role">Trompete</span>
@@ -2106,7 +2106,7 @@ html.js .wipe.is-in{clip-path:inset(0 0 0 0)}
               <span class="member__halo"></span>
               <svg class="member__portal" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true"><path d="M16 352V143C16-21 284-21 284 143V352" fill="none" stroke="currentColor"/></svg>
             </span>
-            <span class="member__portrait"><img src="/hudebnici/zdenek-kram.png" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Krám, Kapellmeister von Big Band Karlovy Vary" onerror="this.remove()"></span>
+            <span class="member__portrait"><img src="/hudebnici/zdenek-kram.webp" width="330" height="440" loading="lazy" decoding="async" alt="Zdeněk Krám, Kapellmeister von Big Band Karlovy Vary" onerror="this.remove()"></span>
             <span class="member__front">
               <span class="member__name">Zdeněk Krám</span>
               <span class="member__role">Kapellmeister</span>
